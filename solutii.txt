@@ -1,0 +1,193 @@
+﻿[descriere]
+denumire=daigo_ji ;
+poza='imagini\\daigo' ;
+descriere_sol='Considerat patrimoniu Mondial si unul din cele mai 
+               frumoase temple din lume. Contine numeroase gradini si o
+               pagoda cu cinci etaje.' ;
+proprietati={anotimp/toamna,buget/mic}
+[/descriere].
+
+[descriere]
+denumire=tokyo ;
+poza='imagini\\tokyo' ;
+descriere_sol='Capitala Japoniei este cea mai
+               populata zona metropolitana din lume si
+               considerat unul dintre cele mai moderne orase
+               din lume. Cateva din atractiile turistice sunt:
+               gradina Shinjuku Gyoen, parcul Ueno, cafenelele
+               cu pisici si bufnite, restaurantele Ninja, orasele
+               electronice si numeroasele districte manga.' ;
+proprietati={anotimp/primavara,buget/mare}
+[/descriere].
+
+[descriere]
+denumire=fuji_five_lakes ;
+poza='imagini\\fuji' ;
+descriere_sol='Cele cinci lacuri : Kawaguchiko, Yamanakako, Saiko,
+               Shojiko si Motosuko, se afla lal baza Nordica a muntelui Fuji
+               si s-au format in urma unor eruptii vulcanice. Alte atractii
+               turistice din apropiere: izvorurile fierbinti, drumetii, pescuitul,
+               parcuri de amuzament.' ;
+proprietati={anotimp/primavara,buget/mediu}
+[/descriere].
+
+[descriere]
+denumire=hakuba ;
+poza='imagini\\nagano' ;
+descriere_sol='Hakuba este localizata in Alpii de Nord ai
+               prefecturii Nagano si este cea mai populara
+               zona de sky din Japonia, oferind zapada de
+               calitate si numeroase resorturi de ski precum
+               Hakuba Ski Jumping Stadium (unde s-a tinut si
+               olimpiada de iarna in anul 1998).' ;
+proprietati={anotimp/iarna,buget/mediu}
+[/descriere].
+
+[descriere]
+denumire=hokkaido ;
+poza='imagini\\hokkaido' ;
+descriere_sol='Campurile de lavanda sunt cea
+               mai vizitata zona din regiunea Hokkaido
+               de pe timpul verii. Poti sa te plimbi cu
+               bicicleta ,sa stai la un picnic cu familia si sa
+               admiri “marea de nori” din Tomamu, canalul
+               Otaru, Nisero sau artificiile de la lacul Toya.' ;
+proprietati={anotimp/vara,buget/mediu}
+[/descriere].
+
+[descriere]
+denumire=osaka ;
+poza='imagini\\osaka' ;
+descriere_sol='Al doilea cel mai mare oras al Japoniei, atrage
+               turistii prin energia orasului, oamenii sociali si
+               prietenosi si prin cultura culinara deosebita.
+               Oamenii din Osaka traiesc pentru a manca si a bea,
+               de aici si o zicala locala foarte cunoscuta, Kuidaore. ' ;
+proprietati={anotimp/vara,buget/mare}
+[/descriere].
+
+[descriere]
+denumire=okinawa ;
+poza='imagini\\okinawa' ;
+descriere_sol='Aceasta insula este cunoscuta drept “tara
+               nemuritorilor”, locuitorii avand o rata foarte mica a incidentei
+               unor boli precum cancerul, dementa sau bolile de inima.
+               Secretul lor este o puternica dedicare prietenilor şi familiei.' ;
+proprietati={anotimp/vara,buget/mediu}
+[/descriere].
+
+[descriere]
+denumire=shirakawa_go ;
+poza='imagini\\shirakawa' ;
+descriere_sol='Zona muntoasa Shirakawa-go se afla in
+               nord-centrul japoniei si este patrimoniu UNESCO
+               din Decembrie 1995. Este faimoasa pentru
+               arhitectura rustica a caselor in forma de “A”,
+               cunoscuta si sub denumirea de gassho-zukuri (“maini
+               care se roaga.' ;
+proprietati={anotimp/primavara,buget/mediu}
+[/descriere].
+
+[descriere]
+denumire=eikando_temple ;
+poza='imagini\\kyoto' ;
+descriere_sol='Templul Eikando, cunoscut si ca Zenrinji apartine
+               sectei Buddhiste Jodo. Este faimos pentru culorile tomnatice
+               superbe si pentru iluminarea templului care se poate vedea
+               doar seara. Aici puteti vizita gradina, lacul Hojo si numeroase
+               cladiri din incinta, printre care si pagoda Tahoto cu doua etaje.' ;
+proprietati={anotimp/toamna,buget/mic}
+[/descriere].
+
+[descriere]
+denumire=mount_yoshino ;
+poza='imagini\\yoshino' ;
+descriere_sol='Muntele Yoshino este situat in
+               prefectura Nara si este cel mai cunoscut loc
+               pentru a vedea ciresii infloriti, de peste sute
+               de ani. Primii copaci au fost plantati acum
+               1.300 de ani, iar in ziua de astazi muntele are
+               aproximativ 30.000 de ciresi de diferite varietati.
+               De asemenea, turistii pot vizita templele si
+               altarele orasului Yoshino sau sa se bucure de
+               artificii.' ;
+proprietati={anotimp/primavara,buget/mic}
+[/descriere].
+
+[descriere]
+denumire=shikoku ;
+poza='imagini\\shikoku' ;
+descriere_sol='Este cea mai mica insula din cele patru
+               insule principale ale Japoniei si cea mai senina si
+               linistita dintre toate. Peisajul este fermecator,
+               insula fiind cunoscuta pentru natura sa abundenta
+               si raurile pure si nepoluate: Shimanto(“ultimul rau
+               cu apa curata din Japonia”) si raul Yoshino, ai
+               carui curenti de apa repezi il fac ideal pentru a
+               practica rafting cu barci pneumatice. In interiorul
+               insulei, localnicii adesea spun le legende copiilor
+               despre spirite si fantome pentru a-i tine departe de
+               raurile repezi si de prapastii periculoase.' ;
+proprietati={anotimp/vara,buget/mare}
+[/descriere].
+
+[descriere]
+denumire=takayama ;
+poza='imagini\\takayama' ;
+descriere_sol='Takayama este un oras din
+               reguinea muntoasa Hida,prefectura Gifu.
+               Orasul a pastrat decorul traditional,
+               reprezentant perfect orasele vechi ale
+               Japoniei. Festivalul Takayama, care se tine
+               primavara(14-15 Aprilie) si toamna(9-10
+               Octombrie) este considerat cel mai frumos din
+               Japonia. De asemenea, orasul ofera
+               numeroase muzee, sate agricole si mesteri
+               priceputi.' ;
+proprietati={anotimp/iarna,buget/mediu}
+[/descriere].
+
+[descriere]
+denumire=kyushu ;
+poza='imagini\\kyushu ';
+descriere_sol='Kyushu este a treia cea mai mare
+               insula a Japoniei ce ofera multe comori
+               istorice, orase moderne si frumuseti ale naturii.
+               Insula este plina de peisaje verzi ce iti taie
+               rasuflarea, numerosi vulcani activi, stanci, linii
+               de coasta aproape tropicale si foarte multe bai
+               termale.' ;
+proprietati={anotimp/vara,buget/mediu}
+[/descriere].
+
+[descriere]
+denumire=giro ;
+poza='imagini\\giro ';
+descriere_sol='Baile termale din Giro sunt cele
+               mai bune din Japonia, apa lor avand calitati
+               speciale. Aici exista si o apa termala
+               gratuita situata in mijlocul orasului,langa
+               podul principal. De asemenea, se poate
+               vizita si templul Onsenju, unde este
+               reprezentat Yakushi Nyorai, Buddha al
+               vindecarii, a carui imagine se spune ca a
+               readus cursul apei termale in oras dupa un
+               cutremur puternic.' ;
+proprietati={anotimp/iarna,buget/mic}
+[/descriere].
+
+[descriere]
+denumire=arashiyama ;
+poza='imagini\\arashiyama' ;
+descriere_sol='Este un district situat in vestul
+               orasului Kyoto. Podul Togetsukyo este
+               atractia principala, iar in rest turistii pot vizita
+               templul Tenryuji, pot inchiria barci sau pot
+               admira faimoasa padure de
+               bambus.Totodata, localnicii recomanda
+               turistilor sa parcurga districtul cu bicicleta,
+               astfel incat sa poata vedea intreaga zona
+               rurala, campurile si templele la un pret
+               rezonabil si fara sa rateze peisajul superb.' ;
+proprietati={anotimp/toamna,buget/mic}
+[/descriere].

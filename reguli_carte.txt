@@ -1,0 +1,856 @@
+[ scop = = loc_excursie ].
+
+Id_regula@1
+Premise: 
+[#] not[resimte_emotii]
+[#] not[interesat_de_natura]
+[#] not[friguros]
+anotimp=iarna//FC=98.
+
+Id_regula@2
+Premise: 
+[#] not[resimte_emotii]
+[#] not[interesat_de_natura]
+[#] friguros
+anotimp=vara//FC=98.
+
+Id_regula@3
+Premise: 
+[#] not[resimte_emotii]
+[#] interesat_de_natura
+[#] not[friguros]
+anotimp=primavara//FC=86.
+
+Id_regula@4
+Premise: 
+[#] not[resimte_emotii]
+[#] interesat_de_natura
+[#] not[friguros]
+anotimp=toamna//FC=86.
+
+Id_regula@5
+Premise: 
+[#] resimte_emotii
+[#] not[interesat_de_natura]
+[#] friguros
+anotimp=vara//FC=86.
+
+Id_regula@6
+Premise: 
+[#] resimte_emotii
+[#] interesat_de_natura
+[#] not[friguros]
+anotimp=toamna//FC=98.
+
+Id_regula@7
+Premise: 
+[#] resimte_emotii
+[#] interesat_de_natura
+[#] not[friguros]
+anotimp=primavara//FC=90.
+
+Id_regula@8
+Premise: 
+[#] resimte_emotii
+[#] interesat_de_natura
+[#] friguros
+anotimp=toamna//FC=90.
+
+Id_regula@9
+Premise: 
+[#] resimte_emotii
+[#] interesat_de_natura
+[#] friguros
+anotimp=primavara//FC=98.
+
+
+
+
+Id_regula@10
+Premise: 
+[#] fire_indrazneata
+[#] tip_personalitate <- extrovertit
+zona_dorita=urbana//FC=98.
+
+Id_regula@11
+Premise: 
+[#] fire_indrazneata
+[#] tip_personalitate <- ambivert
+zona_dorita=urbana//FC=88.
+
+Id_regula@12
+Premise: 
+[#] fire_indrazneata
+[#] tip_personalitate <- introvertit
+zona_dorita=rurala//FC=70.
+
+Id_regula@13
+Premise: 
+[#] not[fire_indrazneata]
+[#] tip_personalitate <- introvertit
+zona_dorita=rurala//FC=98.
+
+Id_regula@14
+Premise: 
+[#] not[fire_indrazneata]
+[#] tip_personalitate <- ambivert
+zona_dorita=rurala//FC=88.
+
+
+
+Id_regula@15
+Premise: 
+[#] not[sociabil]
+[#] not[expresiv]
+tip_personalitate=introvertit//FC=98.
+
+
+Id_regula@16
+Premise: 
+[#] not[sociabil]
+[#] expresiv
+tip_personalitate=ambivert//FC=85.
+
+Id_regula@17
+Premise: 
+[#] sociabil
+[#] not[expresiv]
+tip_personalitate=ambivert//FC=88.
+
+Id_regula@18
+Premise: 
+[#] sociabil
+[#] expresiv
+tip_personalitate=extrovertit//FC=98.
+
+
+
+Id_regula@19
+Premise: 
+[#] preferinta <- iesit_cu_prietenii
+[#] vorbaret
+sociabil=t//FC=98.
+
+Id_regula@20
+Premise: 
+[#] preferinta <- iesit_cu_prietenii
+[#] not[vorbaret]
+sociabil=f//FC=70.
+
+Id_regula@21
+Premise: 
+[#] preferinta <- stat_in_casa
+[#] not[vorbaret]
+sociabil=f//FC=98.
+
+Id_regula@22
+Premise: 
+[#] preferinta <- stat_in_casa
+[#] vorbaret
+sociabil=t//FC=65.
+
+
+
+Id_regula@23
+Premise: 
+[#] not[loc_istoric]
+[#] not[meditatie]
+templu=f//FC=90.
+
+Id_regula@24
+Premise: 
+[#] not[loc_istoric]
+[#] meditatie
+templu=t//FC=90.
+
+Id_regula@25
+Premise: 
+[#] loc_istoric
+[#] not[meditatie]
+templu=t//FC=95.
+
+Id_regula@26
+Premise: 
+[#] loc_istoric
+[#] meditatie
+templu=t//FC=98.
+
+
+
+Id_regula@27
+Premise: 
+[#] not[fire_spirituala]
+[#] not[tip_linistit]
+loc_istoric=f//FC=90.
+
+Id_regula@28
+Premise: 
+[#] not[fire_spirituala]
+[#] tip_linistit
+loc_istoric=t//FC=88.
+
+Id_regula@29
+Premise: 
+[#] fire_spirituala
+[#] not[tip_linistit]
+loc_istoric=t//FC=95.
+
+Id_regula@30
+Premise: 
+[#] fire_spirituala
+[#] tip_linistit
+loc_istoric=t//FC=98.
+
+
+
+Id_regula@31
+Premise: 
+[#] buget <- mic
+[#] economisire
+pret=ieftin//FC=98.
+
+Id_regula@32
+Premise: 
+[#] buget <- mic
+[#] not[economisire]
+pret=ieftin//FC=90.
+
+Id_regula@33
+Premise: 
+[#] buget <- mediu
+[#] economisire
+pret=ieftin//FC=96.
+
+Id_regula@34
+Premise: 
+[#] buget <- mediu
+[#] economisire
+pret=mediu//FC=86.
+
+Id_regula@35
+Premise: 
+[#] buget <- mediu
+[#] not[economisire]
+pret=mediu//FC=98.
+
+Id_regula@36
+Premise: 
+[#] buget <- mare
+[#] economisire
+pret=mediu//FC=96.
+
+Id_regula@37
+Premise: 
+[#] buget <- mare
+[#] economisire
+pret=mare//FC=86.
+
+Id_regula@38
+Premise: 
+[#] buget <- mare
+[#] not[economisire]
+pret=mare//FC=98.
+
+
+
+Id_regula@39
+Premise: 
+[#] este_capitala
+loc_excursie=tokyo//FC=100.
+
+Id_regula@40
+Premise: 
+[#] zona_dorita <- urbana
+[#] pret <- mare
+loc_excursie=tokyo//FC=79.
+
+Id_regula@41
+Premise: 
+[#] zona_dorita <- urbana
+[#] timp_la_dispozitie <- mult
+[#] parteneri_vacanta <- singur
+loc_excursie=tokyo//FC=85.
+
+Id_regula@42
+Premise: 
+[#] timp_la_dispozitie <- mult
+[#] apa_termala
+[#] pret <- mare
+loc_excursie=tokyo//FC=84.
+
+Id_regula@43
+Premise: 
+[#] anotimp <- primavara
+[#] apa_termala
+[#] pret <- scump
+loc_excursie=tokyo//FC=89.
+
+Id_regula@44
+Premise: 
+[#] anotimp <- iarna
+[#] templu
+[#] pret <- mare
+[#] parteneri_vacanta <- singur
+loc_excursie=tokyo//FC=93.
+
+Id_regula@45
+Premise: 
+[#] anotimp <- primavara
+[#] apa_termala 
+[#] pret <- mare
+[#] parteneri_vacanta <- singur
+loc_excursie=tokyo//FC=94.
+
+Id_regula@46
+Premise: 
+[#] anotimp <- primavara
+[#] apa_termala 
+[#] templu
+[#] pret <- mare
+[#] parteneri_vacanta <- singur
+loc_excursie=tokyo//FC=97.
+
+
+
+Id_regula@47
+Premise: 
+[#] anotimp <- toamna
+[#] parteneri_vacanta <- cu_familia
+[#] timp_la_dispozitie <- mult
+loc_excursie=daigo_ji//FC=72.
+
+Id_regula@48
+Premise: 
+[#] parteneri_vacanta <- cu_familia
+[#] zona_dorita <- rurala
+[#] timp_la_dispozitie <- mult
+loc_excursie=daigo_ji//FC=73.
+
+Id_regula@49
+Premise: 
+[#] anotimp <- toamna
+[#] pret <- ieftin
+[#] timp_la_dispozitie <- mult
+loc_excursie=daigo_ji//FC=71.
+
+Id_regula@50
+Premise: 
+[#] anotimp <- toamna
+[#] parteneri_vacanta <- cu_familia
+[#] templu
+[#] timp_la_dispozitie <- mult
+loc_excursie=daigo_ji//FC=84.
+
+Id_regula@51
+Premise: 
+[#] anotimp <- toamna
+[#] parteneri_vacanta <- cu_familia
+[#] not[apa_termala]
+[#] timp_la_dispozitie <- mult
+loc_excursie=daigo_ji//FC=85.
+
+Id_regula@52
+Premise: 
+[#] anotimp <- toamna
+[#] parteneri_vacanta <- cu_familia
+[#] pret <- ieftin
+[#] timp_la_dispozitie <- mult
+loc_excursie=daigo_ji//FC=83.
+
+Id_regula@53
+Premise: 
+[#] anotimp <- toamna
+[#] parteneri_vacanta <- cu_familia
+[#] timp_la_dispozitie <- mult 
+[#] zona_dorita <- rurala
+loc_excursie=daigo_ji//FC=89.
+
+
+
+Id_regula@54
+Premise: 
+[#] anotimp <- primavara
+[#] parteneri_vacanta <- singur
+[#] timp_la_dispozitie <- mediu 
+loc_excursie=fuji_five_lakes//FC=68.
+
+Id_regula@55
+Premise: 
+[#] anotimp <- primavara
+[#] apa_termala
+[#] zona_dorita <- rurala
+[#] timp_la_dispozitie <- mediu 
+loc_excursie=fuji_five_lakes//FC=79.
+
+Id_regula@56
+Premise: 
+[#] anotimp <- primavara
+[#] not[templu]
+[#] zona_dorita <- rurala
+[#] buget <- mediu 
+loc_excursie=fuji_five_lakes//FC=85.
+
+Id_regula@57
+Premise: 
+[#] not[templu]
+[#] apa_termala
+[#] zona_dorita <- rurala
+[#] pret <- mediu 
+loc_excursie=fuji_five_lakes//FC=87.
+
+
+Id_regula@58
+Premise: 
+[#] anotimp <- iarna
+[#] zona_dorita <- rurala
+[#] pret <- mediu 
+loc_excursie=hakuba//FC=77.
+
+Id_regula@59
+Premise: 
+[#] anotimp <- iarna
+[#] apa_termala
+[#] parteneri_vacanta <- cu_familia
+[#] pret <- mediu 
+loc_excursie=hakuba//FC=87.
+
+Id_regula@60
+Premise: 
+[#] anotimp <- iarna
+[#] timp_la_dispozitie <- mediu
+[#] zona_dorita <- rurala
+[#] pret <- mediu 
+loc_excursie=hakuba//FC=84.
+
+Id_regula@61
+Premise: 
+[#] apa_termala
+[#] not[templu]
+[#] zona_dorita <- rurala
+[#] pret <- mare 
+loc_excursie=hakuba//FC=88.
+
+
+Id_regula@62
+Premise: 
+[#] anotimp <- vara
+[#] timp_la_dispozitie <- mult
+loc_excursie=hokkaido//FC=60.
+
+Id_regula@62
+Premise: 
+[#] anotimp <- vara
+[#] parteneri_vacanta <- cu_familia
+[#] timp_la_dispozitie <- mult
+loc_excursie=hokkaido//FC=80.
+
+Id_regula@62
+Premise: 
+[#] pret <- mediu
+[#] parteneri_vacanta <- cu_familia
+[#] timp_la_dispozitie <- mult
+loc_excursie=hokkaido//FC=82.
+
+Id_regula@63
+Premise: 
+[#] anotimp <- vara
+[#] parteneri_vacanta <- cu_familia
+[#] timp_la_dispozitie <- mult
+[#] apa_termala 
+[#] templu
+loc_excursie=hokkaido//FC=90.
+
+
+
+Id_regula@64
+Premise: 
+[#] anotimp <- vara
+[#] parteneri_vacanta <- singur
+[#] timp_la_dispozitie <- mult
+loc_excursie=osaka//FC=78.
+
+Id_regula@65
+Premise: 
+[#] anotimp <- vara
+[#] zona_dorita <- urbana
+[#] timp_la_dispozitie <- mult
+loc_excursie=osaka//FC=79.
+
+Id_regula@66
+Premise: 
+[#] anotimp <- vara
+[#] pret <- mare
+[#] parteneri_vacanta <- singur
+loc_excursie=osaka//FC=77.
+
+Id_regula@67
+Premise: 
+[#] anotimp <- vara
+[#] timp_la_dispozitie <- mult
+[#] pret <- mare
+[#] templu
+[#] parteneri_vacanta <- singur
+loc_excursie=osaka//FC=90.
+
+
+Id_regula@68
+Premise: 
+[#] anotimp <- vara
+[#] zona_dorita <- rurala
+[#] pret <- mediu
+[#] parteneri_vacanta <- singur
+loc_excursie=okinawa//FC=87.
+
+Id_regula@69
+Premise: 
+[#] anotimp <- vara
+[#] zona_dorita <- rurala
+[#] not[templu]
+[#] apa_termala
+[#] parteneri_vacanta <- singur
+loc_excursie=okinawa//FC=92.
+
+Id_regula@70
+Premise: 
+[#] anotimp <- vara
+[#] zona_dorita <- rurala
+[#] pret <- mediu
+[#] timp_la_dispozitie <- mult
+[#] parteneri_vacanta <- singur
+loc_excursie=okinawa//FC=94.
+
+
+Id_regula@71
+Premise: 
+[#] anotimp <- iarna
+[#] zona_dorita <- rurala
+[#] parteneri_vacanta <- cu_familia
+loc_excursie=shirakawa_go//FC=65.
+
+Id_regula@71
+Premise: 
+[#] anotimp <- primavara
+[#] pret <- mediu
+[#] parteneri_vacanta <- cu_familia
+[#] not[templu]
+loc_excursie=shirakawa_go//FC=75.
+
+Id_regula@72
+Premise: 
+[#] anotimp <- iarna
+[#] zona_dorita <- rurala
+[#] not[templu]
+[#] not[apa_termala]
+loc_excursie=shirakawa_go//FC=80.
+
+Id_regula@73
+Premise: 
+[#] anotimp <- iarna
+[#] zona_dorita <- rurala
+[#] not[templu]
+[#] parteneri_vacanta <- cu_familia
+[#] pret <- mediu
+loc_excursie=shirakawa_go//FC=85.
+
+
+Id_regula@74
+Premise: 
+[#] zona_dorita <- rurala
+[#] templu
+[#] pret <- mic
+loc_excursie=eikando_temple//FC=60.
+
+Id_regula@75
+Premise: 
+[#] zona_dorita <- rurala
+[#] templu
+[#] parteneri_vacanta <- singur
+[#] pret <- mic
+loc_excursie=eikando_temple//FC=80.
+
+Id_regula@76
+Premise: 
+[#] anotimp <- toamna
+[#] zona_dorita <- rurala
+[#] parteneri_vacanta <- singur
+[#] templu
+loc_excursie=eikando_temple//FC=85.
+
+Id_regula@77
+Premise: 
+[#] anotimp <- toamna
+[#] zona_dorita <- rurala
+[#] parteneri_vacanta <- singur
+[#] templu
+[#] timp_la_dispozitie <- putin
+loc_excursie=eikando_temple//FC=90.
+
+Id_regula@78
+Premise: 
+[#] anotimp <- primavara
+[#] zona_dorita <- rurala
+loc_excursie=mount_yoshino//FC=50.
+
+Id_regula@79
+Premise: 
+[#] anotimp <- primavara
+[#] zona_dorita <- rurala
+[#] parteneri_vacanta <- singur
+[#] templu
+loc_excursie=mount_yoshino//FC=68.
+
+Id_regula@80
+Premise: 
+[#] anotimp <- primavara
+[#] timp_la_dispozitie <- putin
+[#] pret <- mic
+[#] zona_dorita <- rurala
+loc_excursie=mount_yoshino//FC=73.
+
+Id_regula@81
+Premise: 
+[#] anotimp <- primavara
+[#] pret <- mic
+[#] zona_dorita <- rurala
+[#] templu
+[#] not[apa_termala]
+loc_excursie=mount_yoshino//FC=85.
+
+
+Id_regula@82
+Premise: 
+[#] anotimp <- vara
+[#] pret <- mare
+[#] parteneri_vacanta <- cu_familia
+loc_excursie=shikoku//FC=80.
+
+Id_regula@83
+Premise: 
+[#] anotimp <- vara
+[#] templu
+[#] apa_termala
+[#] pret <- mare
+[#] parteneri_vacanta <- cu_familia
+loc_excursie=shikoku//FC=87.
+
+Id_regula@84
+Premise: 
+[#] anotimp <- vara
+[#] templu
+[#] timp_la_dispozitie <- mult
+[#] pret <- mare
+[#] parteneri_vacanta <- cu_familia
+loc_excursie=shikoku//FC=90.
+
+
+Id_regula@85
+Premise: 
+[#] anotimp <- vara
+[#] timp_la_dispozitie <- mediu
+[#] zona_dorita <- rurala
+loc_excursie=takayama//FC=65.
+
+Id_regula@86
+Premise: 
+[#] anotimp <- primavara
+[#] timp_la_dispozitie <- mediu
+[#] parteneri_vacanta <- cu_familia
+loc_excursie=takayama//FC=66.
+
+Id_regula@87
+Premise: 
+[#] anotimp <- iarna
+[#] timp_la_dispozitie <- mediu
+[#] parteneri_vacanta <- cu_familia
+[#] templu
+[#] pret <- scump
+loc_excursie=takayama//FC=86.
+
+
+Id_regula@88
+Premise: 
+[#] anotimp <- vara
+[#] timp_la_dispozitie <- mediu
+[#] parteneri_vacanta <- singur
+loc_excursie=kyushu//FC=80.
+
+Id_regula@89
+Premise: 
+[#] timp_la_dispozitie <- mediu
+[#] not[templu]
+[#] parteneri_vacanta <- singur
+loc_excursie=kyushu//FC=78.
+
+Id_regula@90
+Premise: 
+[#] anotimp <- vara
+[#] timp_la_dispozitie <- mediu
+[#] parteneri_vacanta <- singur
+[#] pret <- mediu
+loc_excursie=kyushu//FC=83.
+
+Id_regula@91
+Premise: 
+[#] anotimp <- vara
+[#] timp_la_dispozitie <- mediu
+[#] zona_dorita <- rurala
+[#] not[templu]
+[#] parteneri_vacanta <- singur
+[#] pret <- mediu
+loc_excursie=kyushu//FC=94.
+
+
+Id_regula@92
+Premise: 
+[#] timp_la_dispozitie <- putin
+[#] zona_dorita <- rurala
+loc_excursie=giro//FC=55.
+
+Id_regula@93
+Premise: 
+[#] timp_la_dispozitie <- putin
+[#] zona_dorita <- rurala
+[#] parteneri_vacanta <- singur
+loc_excursie=giro//FC=60.
+
+Id_regula@94
+Premise: 
+[#] anotimp <- iarna
+[#] zona_dorita <- rurala
+[#] templu
+[#] apa_termala 
+loc_excursie=giro//FC=68.
+
+Id_regula@95
+Premise: 
+[#] anotimp <- iarna
+[#] timp_la_dispozitie <- putin
+[#] zona_dorita <- rurala
+[#] pret <- ieftin
+[#] apa_termala 
+loc_excursie=giro//FC=89.
+
+Id_regula@96
+Premise: 
+[#] anotimp <- iarna
+[#] timp_la_dispozitie <- putin
+[#] zona_dorita <- rurala
+[#] templu
+[#] apa_termala
+[#] parteneri_vacanta <- singur 
+loc_excursie=giro//FC=94.
+
+Id_regula@97
+Premise: 
+[#] anotimp <- toamna
+[#] timp_la_dispozitie <- mediu
+loc_excursie=arashiyama//FC=55.
+
+Id_regula@98
+Premise: 
+[#] anotimp <- vara
+[#] timp_la_dispozitie <- mediu
+[#] zona_dorita <- rurala
+loc_excursie=arashiyama//FC=66.
+
+Id_regula@99
+Premise: 
+[#] anotimp <- toamna
+[#] timp_la_dispozitie <- mediu
+[#] zona_dorita <- rurala
+[#] pret <- ieftin
+loc_excursie=arashiyama//FC=71.
+
+Id_regula@100
+Premise: 
+[#] anotimp <- vara
+[#] timp_la_dispozitie <- mediu
+[#] zona_dorita <- rurala
+[#] pret <- ieftin
+loc_excursie=arashiyama//FC=71.
+
+Id_regula@101
+Premise: 
+[#] anotimp <- primavara
+[#] timp_la_dispozitie <- mediu
+[#] zona_dorita <- rurala
+[#] pret <- ieftin
+loc_excursie=arashiyama//FC=71.
+
+Id_regula@102
+Premise: 
+[#] anotimp <- toamna
+[#] timp_la_dispozitie <- mediu
+[#] zona_dorita <- rurala
+[#] pret <- ieftin
+[#] parteneri_vacanta <- singur
+[#] templu
+loc_excursie=arashiyama//FC=90.
+
+[este_capitala #
+'Ati dori sa mergeti in capitala?' #
+da || nu ].
+
+[resimte_emotii #
+'Sunteti o persoana care resimte multe emotii?' #
+da || nu ].
+
+[friguros #
+'Sunteti o persoana friguroasa?' #
+da || nu ].
+
+[fire_indrazneata #
+'Aveti o fire indrazneata?' #
+da || nu ].
+
+[preferinta #
+'Ce preferinta aveti?' #
+stat_in_casa || iesit_cu_prietenii ].
+
+[interesat_de_natura #
+'Sunteti interesat de natura?' #
+da || nu ].
+
+[expresiv #
+'Sunteti o persoana expresiva?' #
+da || nu ].
+
+[vorbaret #
+'Va plac conversatiile?' #
+da || nu ].
+
+[meditatie #
+'Doriti sa meditati in excursia dumneavoastra?' #
+da || nu ].
+
+[apa_termala #
+'Doriti sa aveti apa termala in excursia dumneavoastra?' #
+da || nu ].
+
+[fire_spirituala #
+'Aveti o fire spirituala?' #
+da || nu ].
+
+[tip_linistit #
+'Sunteti o persoana linistita?' #
+da || nu ].
+
+[buget #
+'Ce buget aveti?' #
+mare || mediu || mic ].
+
+[economisire #
+'Doriti sa economisiti in excursie?' #
+da || nu ].
+
+[timp_la_dispozitie #
+'Cat timp vreti sa alocati excursiei?' #
+putin || mediu || mult ].
+
+[parteneri_vacanta #
+'Cu cine doriti sa mergeti in excursie?' #
+singur || cu_familia ].
+
+
+
+
