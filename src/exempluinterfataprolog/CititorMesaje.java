@@ -101,19 +101,27 @@ public class CititorMesaje extends Thread {
                                 String intrebare=text.substring(2, text.length()-1);
                                 conexiune.getFereastra().setIntrebare(intrebare);
                             } //verific daca sunt optiuni
-                            if (text.length() > 2 && text.charAt(0) == '(' && text.charAt(text.length() - 1) == ')') {
-                                System.out.println("Am intrat in if-ul cu setOptiuni");
+                            else if (text.length() > 2 && text.charAt(0) == '(' && text.charAt(text.length() - 1) == ')') {
+                                System.out.println("Am intrat in setOptiuni");
                                 conexiune.getFereastra().setOptiuni(text);
-                            }// daca este meniu secundar
+                            
+                            }//verific daca este meniu secundar
                             else if(text.length()>2 && text.charAt(0)=='m'&& text.charAt(1)=='(' && text.charAt(text.length()-1)==')')
                             {
-                               // conexiune.getFereastra().setMeniuSecundar(text);
-                            }
+                                System.out.println("Meniu secundar!!!");
+                                conexiune.getFereastra().setMeniuSecundar(text);
+                            }                            
                             //verific daca e solutie
-                            if (text.length() > 2 && text.charAt(0) == 's' && text.charAt(1) == '(' && text.charAt(text.length() - 1) == ')') {
-                                System.out.println("Am primit solutia: " + text);
-                                String intrebare = text.substring(2, text.length() - 1);
-                                conexiune.getFereastra().setSolutie(intrebare);
+                            else if (text.length() > 2 && text.charAt(0) == 's' && text.charAt(1) == '(' && text.charAt(text.length() - 1) == ')') {
+                                    System.out.println("Am primit solutia: " + text);
+                                    String solutie = text.substring(2, text.length() - 1);
+                                try {
+                                    conexiune.getFereastra().setSolutie(solutie);
+                                } catch (IOException ex) {
+                                    Logger.getLogger(CititorMesaje.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                             
+                                
                             }
                         }
 

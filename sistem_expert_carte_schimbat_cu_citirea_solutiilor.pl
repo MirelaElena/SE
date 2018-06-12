@@ -123,10 +123,8 @@ executa([consulta]) :-
 scopuri_princ,!.
 
 
-executa([reinitiaza]) :- 
-retractall(interogat(_)),
-retractall(fapt(_,_,_)),!.
-
+executa([reinitiaza]) :- write(Stream, 'Am reusit sa reinitializez\n'), flush_output(Stream),
+						retractall(interogat(_)), retractall(fapt(_,_,_)),!.
 
 executa([afisare_fapte]) :-
 afiseaza_fapte,!.
@@ -135,12 +133,16 @@ afiseaza_fapte,!.
 executa([cum|L]) :- cum(L),!.
 
 executa([nu],L):-!.
+executa(Stream, [Nu], L):-!.
 
 executa([sumar], L):- afis_list_sol(L).
+executa(Stream, [Sumar], L):- afis_list_sol(Stream, L).
 
 executa([complet], L):- afis_list_sol_detaliat(L).
+executa(Stream, [Complet], L):- afis_list_sol_detaliat(Stream, L).
 
 executa([iesire]):-!.
+executa(Stream, [iesire]):-!.
 
 executa([_|_]) :-
 write('Comanda incorecta! '),nl.
@@ -155,13 +157,11 @@ meniu_secundar(L):-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start
 meniu_secundar(Stream,L):- 
-repeat,
-nl, nl,
-write(Stream,'Reafiseaza?  '),
-nl,nl,
-write(Stream,' ( Nu Sumar  Complet ) '),
-nl,nl,write(Stream,'|: '),citeste_linie(Stream,[H|T]),
-executa([H|T], L), H == nu.
+		repeat,
+		write(Stream,'m(Nu#Sumar#Complet)'),
+		nl,nl,write(Stream,'|: '),
+		citeste_linie(Stream,[H|T]),
+		executa([H|T], L), H == Nu.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
 
 scopuri_princ :- 
@@ -177,12 +177,10 @@ scopuri_princ(Stream) :-
 	setof(st(FC,fapt(av(Atr,Val))), 
 	X^(determina(Stream,Atr), fapt(av(Atr,Val),FC,X), FC>=40),
 	L)
-	-> (afis_list_sol_detaliat(Stream,L), meniu_secundar(Stream,L))
-	; write(Stream,'Nu exista solutii!').	
+	-> (afis_list_sol_detaliat(Stream,L), 
+		meniu_secundar(Stream,L))
+	; write(Stream,'s(Nu exista solutii!)').	
 	
-%scopuri_princ(Stream) :-
-%	scop(Atr),write('Atributul este '),write(Atr),nl, 
-%	determina(Stream,Atr), afiseaza_scop(Stream,Atr),fail.
 scopuri_princ(_).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
 determina(Atr) :- realizare_scop(av(Atr,_),_,[scop(Atr)]),!.
@@ -238,21 +236,23 @@ afis_list_sol_detaliat([H|T]):- afis_list_sol_detaliat(T),
 					   scrie_solutie_in_fisier(Av, FC),
 					   scrie_scop_detaliat(av(Atr, Val), FC), nl.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start
 afis_list_sol_detaliat(Stream,[H]):- 
 		H =.. [_, FC, Fapt],
 		Fapt =.. [_, Av],
 		Av =.. [_,Atr, Val], 
 		scrie_solutie_fcmax_in_fisier(Av, FC),
-		scrie_scop_detaliat(Stream,av(Atr, Val), FC), nl.	
+		scrie_scop_detaliat(Stream,av(Atr, Val), FC),
+		proceseaza_text_primit(Stream,0).	
 		   
-afis_list_sol_detaliat(Stream,[H|T]):- afis_list_sol_detaliat(Stream,T), 
+afis_list_sol_detaliat(Stream,[H|T]):- 
+		afis_list_sol_detaliat(Stream,T), 
 		H =.. [_, FC, Fapt],
 		Fapt =.. [_, Av],
 		Av =.. [_,Atr, Val], 
 		scrie_solutie_in_fisier(Av, FC),
-		scrie_scop_detaliat(Stream,av(Atr, Val), FC), nl.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		scrie_scop_detaliat(Stream,av(Atr, Val), FC).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
 
 afis_list_sol([H]):- H =.. [_, FC, Fapt],
 					   Fapt =.. [_, Av],
@@ -280,19 +280,24 @@ afiseaza_scop(Stream, Atr) :-
 						FC >= 40,format(Stream,"s(~p este ~p cu fc ~p)",[Atr,Val, FC]),
 						nl(Stream),flush_output(Stream),fail.
 
-afiseaza_scop(_,_):-write('a terminat'),nl.
+afiseaza_scop(_,_):- write('A terminat'),nl.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
 
-
 scrie_scop(av(Atr,Val),FC) :-
-transformare(av(Atr,Val), X),
-scrie_lista(X),
-write(' '),
-write('factorul de certitudine este '),
-FC1 is integer(FC),write(FC1).
+		transformare(av(Atr,Val), X),
+		scrie_lista(X),
+		write(' '),
+		write('factorul de certitudine este '),
+		FC1 is integer(FC),write(FC1).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start
+scrie_scop(Stream, av(Atr,Val),FC) :-
+		transformare(av(Atr,Val), X),
+		FC1 is integer(FC),
+		format(Stream,'s(~s)\n',[Val]).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
 scrie_scop_detaliat(av(Atr,Val),FC) :-
 										transformare(av(Atr,Val), X),
 										scrie_lista(X), nl,write(Val),
@@ -965,29 +970,15 @@ inceput:-format('Salutare\n',[]),	flush_output,
 
 				
 proceseaza_text_primit(Stream,C):-
-				write(inainte_de_citire),
+				write(inainte_de_citire),nl,
 				read(Stream,CevaCitit),
-				write(dupa_citire),
+				write(dupa_citire),nl,
 				write(CevaCitit),nl,
 				proceseaza_termen_citit(Stream,CevaCitit,C).
 				
-proceseaza_termen_citit(Stream,salut,C):-
-				write(Stream,'salut, bre!\n'),
-				flush_output(Stream),
-				C1 is C+1,
-				proceseaza_text_primit(Stream,C1).
-				
-proceseaza_termen_citit(Stream,'I hate you!',C):-
-				write(Stream,'I hate you too!!'),
-				flush_output(Stream),
-				C1 is C+1,
-				proceseaza_text_primit(Stream,C1).
-				
-
 proceseaza_termen_citit(Stream,director(D),C):- %pentru a seta directorul curent
 				format(Stream,'Locatia curenta de lucru s-a deplasat la adresa ~p.',[D]),
 				format('Locatia curenta de lucru s-a deplasat la adresa ~p',[D]),
-				
 				X=current_directory(_,D),
 				write(X),
 				call(X),
@@ -1003,6 +994,7 @@ proceseaza_termen_citit(Stream, incarca(X),C):-
 				incarca(X),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).
+				
 proceseaza_termen_citit(Stream, incarca_sol(X),C):-
 				write(Stream,'Se incearca incarcarea fisierului\n'),
 				flush_output(Stream),
@@ -1016,6 +1008,13 @@ proceseaza_termen_citit(Stream, comanda(consulta),C):-
 				scopuri_princ(Stream),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).
+				
+proceseaza_termen_citit(Stream, comanda(reinitiaza),C):-
+				write(Stream,'Se incepe reinitializarea\n'),
+				flush_output(Stream),
+				executa([reinitiaza]),
+				C1 is C+1,
+				proceseaza_text_primit(Stream,C1).				
 				
 proceseaza_termen_citit(Stream, X, _):- % cand vrem sa-i spunem "Pa"
 				(X == end_of_file ; X == exit),

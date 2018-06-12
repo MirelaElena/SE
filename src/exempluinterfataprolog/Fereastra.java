@@ -10,13 +10,9 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.PipedOutputStream;
-import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -241,7 +237,12 @@ public class Fereastra extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+            conexiune.expeditor.trimiteMesajSicstus("comanda(reinitiaza)");
 
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Fereastra.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -477,27 +478,27 @@ public class Fereastra extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea textAreaDebug;
     // End of variables declaration//GEN-END:variables
-//
-//    void setMeniuSecundar(String text) {
-//        
-//        jPanel5.removeAll();
-//        jPanel5.setLayout(new FlowLayout());
-//        optiuni = optiuni.trim();
-//        optiuni = optiuni.substring(1, optiuni.length() - 1);
-//        optiuni = optiuni.trim();
-//        String[] vect_opt = optiuni.split(" ");
-//        for (int i = 0; i < vect_opt.length; i++) {
-//            JButton b = new JButton(vect_opt[i]);
-//            b.addActionListener(new java.awt.event.ActionListener() {
-//                public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                    optiuneButtonActionPerformed(evt);
-//                }
-//            });
-//            this.panou_intrebari.panou_optiuni.add(b);
-//        }
-//        this.panou_intrebari.panou_optiuni.repaint();
-//        this.panou_intrebari.panou_optiuni.revalidate();
-//        //this.revalidate();
-//        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
+
+    void setMeniuSecundar(String text) {
+        
+        jPanel5.removeAll();
+        jPanel5.setLayout(new FlowLayout());
+        text = text.trim();
+        text = text.substring(1, text.length() - 1);
+        text = text.trim();
+        String[] vect_meniu_sec = text.split("#");
+        for (int i = 0; i < vect_meniu_sec.length; i++) {
+            JButton b = new JButton(vect_meniu_sec[i]);
+            b.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    optiuneButtonActionPerformed(evt);
+                }
+            });
+            this.panou_intrebari.panou_optiuni.add(b);
+        }
+        this.panou_intrebari.panou_optiuni.repaint();
+        this.panou_intrebari.panou_optiuni.revalidate();
+        //this.revalidate();
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
