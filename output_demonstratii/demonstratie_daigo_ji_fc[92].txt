@@ -1,0 +1,141 @@
+Scop:av(loc_excursie,daigo_ji)
+loc_excursie este daigo_ji   a fost derivat cu ajutorul regulilor:  50 47 
+
+Id_regula@50
+Premise: 
+     [#] anotimp<-toamna
+     [#] parteneri_vacanta<-cu_familia
+     [#] templu
+     [#] timp_la_dispozitie<-mult
+   loc_excursie=daigo_ji//FC=84
+
+Scop:av(anotimp,toamna)
+anotimp este toamna   a fost derivat cu ajutorul regulilor:  8 
+
+Id_regula@8
+Premise: 
+     [#] resimte_emotii
+     [#] interesat_de_natura
+     [#] friguros
+   anotimp=toamna//FC=90
+
+Scop:av(resimte_emotii,da)
+resimte_emotii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(interesat_de_natura,da)
+interesat_de_natura   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(friguros,da)
+friguros   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Scop:av(parteneri_vacanta,cu_familia)
+parteneri_vacanta este cu_familia   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(templu,da)
+templu   a fost derivat cu ajutorul regulilor:  26 
+
+Id_regula@26
+Premise: 
+     [#] loc_istoric
+     [#] meditatie
+   templu=t//FC=98
+
+Scop:av(loc_istoric,da)
+loc_istoric   a fost derivat cu ajutorul regulilor:  30 
+
+Id_regula@30
+Premise: 
+     [#] fire_spirituala
+     [#] tip_linistit
+   loc_istoric=t//FC=98
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(tip_linistit,da)
+tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   loc_istoric=da//FC=98
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(tip_linistit,da)
+tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Scop:av(meditatie,da)
+meditatie   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   templu=da//FC=98
+
+Scop:av(loc_istoric,da)
+loc_istoric   a fost derivat cu ajutorul regulilor:  30 
+
+Id_regula@30
+Premise: 
+     [#] fire_spirituala
+     [#] tip_linistit
+   loc_istoric=t//FC=98
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(tip_linistit,da)
+tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   loc_istoric=da//FC=98
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(tip_linistit,da)
+tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Scop:av(meditatie,da)
+meditatie   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Scop:av(timp_la_dispozitie,mult)
+timp_la_dispozitie este mult   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Id_regula@47
+Premise: 
+     [#] anotimp<-toamna
+     [#] parteneri_vacanta<-cu_familia
+     [#] timp_la_dispozitie<-mult
+   loc_excursie=daigo_ji//FC=72
+
+Scop:av(anotimp,toamna)
+anotimp este toamna   a fost derivat cu ajutorul regulilor:  8 
+
+Id_regula@8
+Premise: 
+     [#] resimte_emotii
+     [#] interesat_de_natura
+     [#] friguros
+   anotimp=toamna//FC=90
+
+Scop:av(resimte_emotii,da)
+resimte_emotii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(interesat_de_natura,da)
+interesat_de_natura   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(friguros,da)
+friguros   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Scop:av(parteneri_vacanta,cu_familia)
+parteneri_vacanta este cu_familia   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(timp_la_dispozitie,mult)
+timp_la_dispozitie este mult   a fost derivat cu ajutorul regulilor:  utiliz 
+
+

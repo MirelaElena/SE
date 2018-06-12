@@ -1,0 +1,77 @@
+Scop:av(loc_excursie,tokyo)
+loc_excursie este tokyo   a fost derivat cu ajutorul regulilor:  40 
+
+Id_regula@40
+Premise: 
+     [#] zona_dorita<-urbana
+     [#] pret<-mare
+   loc_excursie=tokyo//FC=79
+
+Scop:av(zona_dorita,urbana)
+zona_dorita este urbana   a fost derivat cu ajutorul regulilor:  11 
+
+Id_regula@11
+Premise: 
+     [#] fire_indrazneata
+     [#] tip_personalitate<-ambivert
+   zona_dorita=urbana//FC=88
+
+Scop:av(fire_indrazneata,da)
+fire_indrazneata   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(tip_personalitate,ambivert)
+tip_personalitate este ambivert   a fost derivat cu ajutorul regulilor:  17 
+
+Id_regula@17
+Premise: 
+     [#] sociabil
+     [#] not[expresiv]
+   tip_personalitate=ambivert//FC=88
+
+Scop:av(sociabil,da)
+sociabil   a fost derivat cu ajutorul regulilor:  19 
+
+Id_regula@19
+Premise: 
+     [#] preferinta<-iesit_cu_prietenii
+     [#] vorbaret
+   sociabil=t//FC=98
+
+Scop:av(preferinta,iesit_cu_prietenii)
+preferinta este iesit_cu_prietenii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(vorbaret,da)
+vorbaret   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   sociabil=da//FC=98
+
+Scop:av(preferinta,iesit_cu_prietenii)
+preferinta este iesit_cu_prietenii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(vorbaret,da)
+vorbaret   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+not expresiv   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(expresiv,da)
+
+
+Scop:av(pret,mare)
+pret este mare   a fost derivat cu ajutorul regulilor:  38 
+
+Id_regula@38
+Premise: 
+     [#] buget<-mare
+     [#] not[economisire]
+   pret=mare//FC=98
+
+Scop:av(buget,mare)
+buget este mare   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not economisire   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(economisire,da)
+
+
