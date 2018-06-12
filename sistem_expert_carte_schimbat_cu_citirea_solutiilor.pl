@@ -98,6 +98,7 @@ goleste_director([H - _|T]):-
 
 
 pornire :-
+write("Pornire"), nl,
 (directory_exists('output_demonstratii') 
 	-> (file_members_of_directory('output_demonstratii', L) 
 		,goleste_director(L)	
@@ -133,13 +134,13 @@ afiseaza_fapte,!.
 executa([cum|L]) :- cum(L),!.
 
 executa([nu],L):-!.
-executa(Stream, [Nu], L):-!.
+executa(Stream, [nu], L):-!.
 
 executa([sumar], L):- afis_list_sol(L).
-executa(Stream, [Sumar], L):- afis_list_sol(Stream, L).
+executa(Stream, [sumar], L):- write('SUMAR'), nl, write('Sol:'), write(L), nl, afis_list_sol(Stream, L),write('SUMAR FINAL'), nl.
 
 executa([complet], L):- afis_list_sol_detaliat(L).
-executa(Stream, [Complet], L):- afis_list_sol_detaliat(Stream, L).
+executa(Stream, [complet], L):- write('COMPLET'), nl, write('Sol:'), write(L), nl, afis_list_sol_detaliat(Stream, L), write('COMPLET FINAL'), nl.
 
 executa([iesire]):-!.
 executa(Stream, [iesire]):-!.
@@ -157,11 +158,13 @@ meniu_secundar(L):-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start
 meniu_secundar(Stream,L):- 
-		repeat,
+		write('Am intrat in meniu secundar'),nl,
 		write(Stream,'m(Nu#Sumar#Complet)'),
-		nl,nl,write(Stream,'|: '),
+		nl(Stream), flush_output(Stream),
+		repeat,
+		write('repeat in meniu secundar'),nl,
 		citeste_linie(Stream,[H|T]),
-		executa([H|T], L), H == Nu.
+		executa(Stream, [H|T], L), H == nu.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
 
 scopuri_princ :- 
@@ -178,6 +181,7 @@ scopuri_princ(Stream) :-
 	X^(determina(Stream,Atr), fapt(av(Atr,Val),FC,X), FC>=40),
 	L)
 	-> (afis_list_sol_detaliat(Stream,L), 
+		write('M-am intors in scopuri principale\n'),
 		meniu_secundar(Stream,L))
 	; write(Stream,'s(Nu exista solutii!)').	
 	
@@ -242,8 +246,7 @@ afis_list_sol_detaliat(Stream,[H]):-
 		Fapt =.. [_, Av],
 		Av =.. [_,Atr, Val], 
 		scrie_solutie_fcmax_in_fisier(Av, FC),
-		scrie_scop_detaliat(Stream,av(Atr, Val), FC),
-		proceseaza_text_primit(Stream,0).	
+		scrie_scop_detaliat(Stream,av(Atr, Val), FC).
 		   
 afis_list_sol_detaliat(Stream,[H|T]):- 
 		afis_list_sol_detaliat(Stream,T), 
@@ -265,7 +268,19 @@ afis_list_sol([H|T]):- afis_list_sol(T),
 					   Av =.. [_,Atr, Val], 
 					   scrie_scop(av(Atr, Val), FC), nl.
 
-					   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start
+afis_list_sol(Stream, [H]):- H =.. [_, FC, Fapt],
+					   Fapt =.. [_, Av],
+					   Av =.. [_,Atr, Val], 
+					   scrie_scop(Stream, av(Atr, Val), FC), nl(Stream), flush_output(Stream).
+
+afis_list_sol(Stream, [H|T]):- afis_list_sol(Stream, T), 
+					   H =.. [_, FC, Fapt],
+					   Fapt =.. [_, Av],
+					   Av =.. [_,Atr, Val], 
+					   scrie_scop(Stream, av(Atr, Val), FC), nl(Stream), flush_output(Stream).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
+
 afiseaza_scop(Atr) :- nl,
 					  fapt(av(Atr, Val), FC,_),
 					  FC >= 40,scrie_scop(av(Atr, Val), FC),
@@ -296,7 +311,7 @@ scrie_scop(av(Atr,Val),FC) :-
 scrie_scop(Stream, av(Atr,Val),FC) :-
 		transformare(av(Atr,Val), X),
 		FC1 is integer(FC),
-		format(Stream,'s(~s)\n',[Val]).
+		format(Stream,'s(~s)',[Val]), nl(Stream), flush_output(Stream).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
 scrie_scop_detaliat(av(Atr,Val),FC) :-
 										transformare(av(Atr,Val), X),
@@ -315,8 +330,9 @@ scrie_scop_detaliat(Stream,av(Atr,Val),FC) :-
 		Proprietati = [av(Anotimp, SolAnotimp), av(Buget, SolBuget)],
 		atom_concat(SolAnotimp, ', ', PropsAux),
 		atom_concat(PropsAux, SolBuget, Props),
-		FC1 is integer(FC), 
-		format(Stream,'s(~s#~d#~s#~s#~s)\n',[Val,FC1, Img, Descriere,Props]),
+		FC1 is integer(FC),
+		format(Stream,'s(~s#~d#~s#~s#~s)',[Val,FC1, Img, Descriere,Props]), 
+		nl(Stream),
 		flush_output(Stream).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1014,7 +1030,8 @@ proceseaza_termen_citit(Stream, comanda(reinitiaza),C):-
 				flush_output(Stream),
 				executa([reinitiaza]),
 				C1 is C+1,
-				proceseaza_text_primit(Stream,C1).				
+				proceseaza_text_primit(Stream,C1).		
+						
 				
 proceseaza_termen_citit(Stream, X, _):- % cand vrem sa-i spunem "Pa"
 				(X == end_of_file ; X == exit),

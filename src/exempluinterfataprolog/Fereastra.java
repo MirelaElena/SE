@@ -428,32 +428,42 @@ public class Fereastra extends javax.swing.JFrame {
             this.panou_intrebari.removeAll();
             this.panou_intrebari.setLayout(new BoxLayout(panou_intrebari, BoxLayout.Y_AXIS));
             Fereastra.AFISAT_SOLUTII = true;
-        }
-        //
-        String[] vect_solutie = solutie.split("#");
-        String textSolutie = "Locul excursiei este " + vect_solutie[0] + " cu factorul de certitudine " + vect_solutie[1] + "."; 
-        String imgSolutie = vect_solutie[2];
-        System.out.println("Cale img: " + imgSolutie);
-        String descSolutie = "Descriere: " + vect_solutie[3].substring(1, vect_solutie[3].length()-1);
-        String propsSolutie = "Proprietati: " + vect_solutie[4] + ".";
+        //}
+        
+        System.out.println("Solutia in getSolutie:" + solutie);
+        
+        if(solutie.length() >= 20) // solutie completa
+        {//
+            String[] vect_solutie = solutie.split("#");
+            String textSolutie = "Locul excursiei este " + vect_solutie[0] + " cu factorul de certitudine " + vect_solutie[1] + "."; 
+            String imgSolutie = vect_solutie[2];
+            String descSolutie = "Descriere: " + vect_solutie[3].substring(1, vect_solutie[3].length()-1);
+            String propsSolutie = "Proprietati: " + vect_solutie[4] + ".";
 
-        String cale = imgSolutie.substring(1, imgSolutie.length() - 1) + ".jpg";
-        System.out.println("Cale: " + cale);
-        BufferedImage bf;
-        bf = ImageIO.read(new File(cale));
+            String cale = imgSolutie.substring(1, imgSolutie.length() - 1) + ".jpg";
+            BufferedImage bf;
+            bf = ImageIO.read(new File(cale));
         
-        //
-        JLabel jsol = new JLabel(textSolutie);
-        JLabel jdesc = new JLabel(descSolutie);
-        JLabel jprops = new JLabel(propsSolutie);
-        JLabel jimg = new JLabel();
-        jimg.setIcon(new ImageIcon(bf));
-        jimg.setMaximumSize(new Dimension(100, 100));
-        
-        this.panou_intrebari.add(jsol);
-        this.panou_intrebari.add(jdesc);
-        this.panou_intrebari.add(jprops);
-        this.panou_intrebari.add(jimg);
+            JLabel jsol = new JLabel(textSolutie);
+            JLabel jdesc = new JLabel(descSolutie);
+            JLabel jprops = new JLabel(propsSolutie);
+            JLabel jimg = new JLabel();
+            jimg.setIcon(new ImageIcon(bf));
+            jimg.setMaximumSize(new Dimension(100, 100));
+            
+                    
+            this.panou_intrebari.add(jsol);
+            this.panou_intrebari.add(jdesc);
+            this.panou_intrebari.add(jprops);
+            this.panou_intrebari.add(jimg);
+        }
+        else //sumar
+        {
+            String textSolutie = "Locul excursiei este " + solutie + ".";
+            JLabel jsol = new JLabel(textSolutie);
+            this.panou_intrebari.add(jsol);
+        }
+
 
         this.panou_intrebari.repaint();
         this.panou_intrebari.revalidate();
@@ -480,24 +490,26 @@ public class Fereastra extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     void setMeniuSecundar(String text) {
-        
         jPanel5.removeAll();
         jPanel5.setLayout(new FlowLayout());
+        JLabel labelReafiseaza = new JLabel("Reafiseaza?"); 
+        jPanel5.add(labelReafiseaza);
         text = text.trim();
-        text = text.substring(1, text.length() - 1);
+        text = text.substring(2, text.length() - 1);
         text = text.trim();
         String[] vect_meniu_sec = text.split("#");
         for (int i = 0; i < vect_meniu_sec.length; i++) {
+            System.out.println("Optiune["+i+"]="+vect_meniu_sec[i]);
             JButton b = new JButton(vect_meniu_sec[i]);
             b.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     optiuneButtonActionPerformed(evt);
                 }
             });
-            this.panou_intrebari.panou_optiuni.add(b);
+            jPanel5.add(b);
         }
-        this.panou_intrebari.panou_optiuni.repaint();
-        this.panou_intrebari.panou_optiuni.revalidate();
+        jPanel5.repaint();
+        jPanel5.revalidate();
         //this.revalidate();
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
