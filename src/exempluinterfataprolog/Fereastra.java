@@ -5,6 +5,7 @@
  */
 package exempluinterfataprolog;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -19,6 +20,7 @@ import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -72,6 +74,7 @@ public class Fereastra extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         textAreaDebug = new javax.swing.JTextArea();
         jPanel5 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -141,7 +144,7 @@ public class Fereastra extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -190,11 +193,22 @@ public class Fereastra extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 668, Short.MAX_VALUE)
+            .addGap(0, 1167, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 157, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 813, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 209, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,19 +217,24 @@ public class Fereastra extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 508, Short.MAX_VALUE))
+                .addGap(0, 321, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(490, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(311, Short.MAX_VALUE))
         );
 
         pack();
@@ -371,24 +390,22 @@ public class Fereastra extends javax.swing.JFrame {
     }
 
     public void setImagine(String cale, String descriere) throws IOException {
-        //jTextField4.setText(descriere);
+       /* jTextField4.setText(descriere);
         BufferedImage bf;
         bf = ImageIO.read(new File(cale));
-       // jLabel1.setIcon(new ImageIcon(bf));
-    //    jPanel1.repaint();
-     //   jPanel1.revalidate();
+        jLabel1.setIcon(new ImageIcon(bf));
+        jPanel1.repaint();
+        jPanel1.revalidate();*/
     }
 
     public void setOptiuni(String optiuni) {
         System.out.println("optiuni: " + optiuni);
         this.panou_intrebari.panou_optiuni.removeAll();
-        this.panou_intrebari.panou_optiuni.repaint();
-        this.panou_intrebari.panou_optiuni.revalidate();
         this.panou_intrebari.panou_optiuni.setLayout(new FlowLayout());
         optiuni = optiuni.trim();
         optiuni = optiuni.substring(2, optiuni.length() - 1);
         optiuni = optiuni.trim();
-        String[] vect_opt = optiuni.split(" ", ',');
+        String[] vect_opt = optiuni.split(" ");
         for(int i=0; i<vect_opt.length; i++)
             System.out.println("vect_opt:" +i +", optiuni: "+ vect_opt[i]);
         for (int i = 0; i < vect_opt.length; i++) {
@@ -405,15 +422,37 @@ public class Fereastra extends javax.swing.JFrame {
         //this.revalidate();
     }
 
-    public void setSolutie(String solutie) {
+    public void setSolutie(String solutie) throws IOException {
         if (!Fereastra.AFISAT_SOLUTII) {
             this.panou_intrebari.removeAll();
-            this.panou_intrebari.setLayout(new FlowLayout());
+            this.panou_intrebari.setLayout(new BoxLayout(panou_intrebari, BoxLayout.Y_AXIS));
             Fereastra.AFISAT_SOLUTII = true;
         }
+        //
+        String[] vect_solutie = solutie.split("#");
+        String textSolutie = "Locul excursiei este " + vect_solutie[0] + " cu factorul de certitudine " + vect_solutie[1] + "."; 
+        String imgSolutie = vect_solutie[2];
+        System.out.println("Cale img: " + imgSolutie);
+        String descSolutie = "Descriere: " + vect_solutie[3].substring(1, vect_solutie[3].length()-1);
+        String propsSolutie = "Proprietati: " + vect_solutie[4] + ".";
 
-        JLabel jsol = new JLabel(solutie);
+        String cale = imgSolutie.substring(1, imgSolutie.length() - 1) + ".jpg";
+        System.out.println("Cale: " + cale);
+        BufferedImage bf;
+        bf = ImageIO.read(new File(cale));
+        
+        //
+        JLabel jsol = new JLabel(textSolutie);
+        JLabel jdesc = new JLabel(descSolutie);
+        JLabel jprops = new JLabel(propsSolutie);
+        JLabel jimg = new JLabel();
+        jimg.setIcon(new ImageIcon(bf));
+        jimg.setMaximumSize(new Dimension(100, 100));
+        
         this.panou_intrebari.add(jsol);
+        this.panou_intrebari.add(jdesc);
+        this.panou_intrebari.add(jprops);
+        this.panou_intrebari.add(jimg);
 
         this.panou_intrebari.repaint();
         this.panou_intrebari.revalidate();
@@ -430,6 +469,7 @@ public class Fereastra extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

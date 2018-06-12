@@ -177,7 +177,7 @@ scopuri_princ(Stream) :-
 	setof(st(FC,fapt(av(Atr,Val))), 
 	X^(determina(Stream,Atr), fapt(av(Atr,Val),FC,X), FC>=40),
 	L)
-	-> (write(Stream,'Sunt solutii!'),nl, afis_list_sol_detaliat(Stream,L), meniu_secundar(Stream,L))
+	-> (afis_list_sol_detaliat(Stream,L), meniu_secundar(Stream,L))
 	; write(Stream,'Nu exista solutii!').	
 	
 %scopuri_princ(Stream) :-
@@ -231,7 +231,7 @@ afis_list_sol_detaliat([H]):- H =.. [_, FC, Fapt],
 					   scrie_solutie_fcmax_in_fisier(Av, FC),
 					   scrie_scop_detaliat(av(Atr, Val), FC), nl.	
 						  
-afis_list_sol_detaliat([H|T]):- afis_list_sol(T), 
+afis_list_sol_detaliat([H|T]):- afis_list_sol_detaliat(T), 
 					   H =.. [_, FC, Fapt],
 					   Fapt =.. [_, Av],
 					   Av =.. [_,Atr, Val], 
@@ -239,13 +239,14 @@ afis_list_sol_detaliat([H|T]):- afis_list_sol(T),
 					   scrie_scop_detaliat(av(Atr, Val), FC), nl.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-afis_list_sol_detaliat(Stream,[H]):- H =.. [_, FC, Fapt],
+afis_list_sol_detaliat(Stream,[H]):- 
+		H =.. [_, FC, Fapt],
 		Fapt =.. [_, Av],
 		Av =.. [_,Atr, Val], 
 		scrie_solutie_fcmax_in_fisier(Av, FC),
 		scrie_scop_detaliat(Stream,av(Atr, Val), FC), nl.	
 		   
-afis_list_sol_detaliat(Stream,[H|T]):- afis_list_sol(T), 
+afis_list_sol_detaliat(Stream,[H|T]):- afis_list_sol_detaliat(Stream,T), 
 		H =.. [_, FC, Fapt],
 		Fapt =.. [_, Av],
 		Av =.. [_,Atr, Val], 
@@ -304,13 +305,14 @@ scrie_scop_detaliat(av(Atr,Val),FC) :-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 scrie_scop_detaliat(Stream,av(Atr,Val),FC) :-
-		transformare(av(Atr,Val), X),
-		scrie_lista(Stream,X), nl,write(Stream,Val),
-		solutie(Val, _, Descriere, _),
-		write(Stream,Descriere), nl,
-		write(Stream,' '),
-		write(Stream,'factorul de certitudine este '),
-		FC1 is integer(FC),write(Stream,FC1).
+		transformare(av(Atr,Val), X), 
+		solutie(Val, Img, Descriere, Proprietati), 
+		Proprietati = [av(Anotimp, SolAnotimp), av(Buget, SolBuget)],
+		atom_concat(SolAnotimp, ', ', PropsAux),
+		atom_concat(PropsAux, SolBuget, Props),
+		FC1 is integer(FC), 
+		format(Stream,'s(~s#~d#~s#~s#~s)\n',[Val,FC1, Img, Descriere,Props]),
+		flush_output(Stream).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

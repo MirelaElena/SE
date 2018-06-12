@@ -111,6 +111,7 @@ public class CititorMesaje extends Thread {
                             }
                             //verific daca e solutie
                             if (text.length() > 2 && text.charAt(0) == 's' && text.charAt(1) == '(' && text.charAt(text.length() - 1) == ')') {
+                                System.out.println("Am primit solutia: " + text);
                                 String intrebare = text.substring(2, text.length() - 1);
                                 conexiune.getFereastra().setSolutie(intrebare);
                             }
