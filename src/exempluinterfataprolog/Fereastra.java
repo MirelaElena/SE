@@ -332,12 +332,11 @@ public class Fereastra extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void optiuneButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void optiuneDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
 
         String raspuns = ((JButton) (evt.getSource())).getText();
         if (raspuns.equalsIgnoreCase("nu")) {//TODO: De schimbat felul cum arata interfata
             System.out.println("Trebuie sa sterg tot");
-           
            
             this.panou_intrebari.removeAll();
             this.panou_intrebari.repaint();
@@ -346,7 +345,18 @@ public class Fereastra extends javax.swing.JFrame {
             jPanel5.repaint();
             jPanel5.revalidate();
         }
-        //doar ca nu vrea sa stearga din panel..a sters butoanele. solutiile tot in panel5 sunt?
+        
+        try {
+            conexiune.expeditor.trimiteSirSicstus(raspuns);
+
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Fereastra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void optiuneButtonActionPerformed(java.awt.event.ActionEvent evt) {
+
+        String raspuns = ((JButton) (evt.getSource())).getText();        
         try {
             conexiune.expeditor.trimiteSirSicstus(raspuns);
 
@@ -516,7 +526,7 @@ public class Fereastra extends javax.swing.JFrame {
             JButton b = new JButton(vect_meniu_sec[i]);
             b.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    optiuneButtonActionPerformed(evt);
+                    optiuneDeleteButtonActionPerformed(evt);
                 }
             });
             jPanel5.add(b);

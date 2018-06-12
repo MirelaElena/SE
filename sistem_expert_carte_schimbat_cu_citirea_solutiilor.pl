@@ -124,7 +124,9 @@ executa([consulta]) :-
 scopuri_princ,!.
 
 
-executa([reinitiaza]) :- write(Stream, 'Am reusit sa reinitializez\n'), flush_output(Stream),
+executa([reinitiaza]) :- retractall(interogat(_)), retractall(fapt(_,_,_)),!.
+
+executa(Stream, [reinitiaza]) :- write(Stream, 'Am reusit sa reinitializez\n'), flush_output(Stream),
 						retractall(interogat(_)), retractall(fapt(_,_,_)),!.
 
 executa([afisare_fapte]) :-
@@ -1019,16 +1021,15 @@ proceseaza_termen_citit(Stream, incarca_sol(X),C):-
 				proceseaza_text_primit(Stream,C1).
 				
 proceseaza_termen_citit(Stream, comanda(consulta),C):-
-				write(Stream,'Se incepe consultarea\n'),
+				write(Stream,'Se incepe consultarea'), nl(Stream), flush_output(Stream),
 				flush_output(Stream),
 				scopuri_princ(Stream),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).
 				
 proceseaza_termen_citit(Stream, comanda(reinitiaza),C):-
-				write(Stream,'Se incepe reinitializarea\n'),
-				flush_output(Stream),
-				executa([reinitiaza]),
+				write(Stream, 'Se incepe reinitializarea'), nl(Stream), flush_output(Stream),
+				executa(Stream, [reinitiaza]), write('2'),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).		
 						
