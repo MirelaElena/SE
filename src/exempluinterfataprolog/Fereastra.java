@@ -424,7 +424,7 @@ public class Fereastra extends javax.swing.JFrame {
     }
 
     public void setSolutie(String solutie) throws IOException {
-        if (!Fereastra.AFISAT_SOLUTII) {
+        //if (!Fereastra.AFISAT_SOLUTII) {
             this.panou_intrebari.removeAll();
             this.panou_intrebari.setLayout(new BoxLayout(panou_intrebari, BoxLayout.Y_AXIS));
             Fereastra.AFISAT_SOLUTII = true;
