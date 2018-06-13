@@ -1,34 +1,69 @@
 Scop:av(loc_excursie,tokyo)
-loc_excursie este tokyo   a fost derivat cu ajutorul regulilor:  42 40 
+loc_excursie este tokyo   a fost derivat cu ajutorul regulilor:  41 40 
 
-Id_regula@42
+Id_regula@41
 Premise: 
+     [#] zona_dorita<-urbana
      [#] timp_la_dispozitie<-mult
-     [#] apa_termala
-     [#] pret<-mare
-   loc_excursie=tokyo//FC=84
+     [#] parteneri_vacanta<-singur
+   loc_excursie=tokyo//FC=85
+
+Scop:av(zona_dorita,urbana)
+zona_dorita este urbana   a fost derivat cu ajutorul regulilor:  10 
+
+Id_regula@10
+Premise: 
+     [#] fire_indrazneata
+     [#] tip_personalitate<-extrovertit
+   zona_dorita=urbana//FC=98
+
+Scop:av(fire_indrazneata,da)
+fire_indrazneata   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(tip_personalitate,extrovertit)
+tip_personalitate este extrovertit   a fost derivat cu ajutorul regulilor:  18 
+
+Id_regula@18
+Premise: 
+     [#] sociabil
+     [#] expresiv
+   tip_personalitate=extrovertit//FC=98
+
+Scop:av(sociabil,da)
+sociabil   a fost derivat cu ajutorul regulilor:  19 
+
+Id_regula@19
+Premise: 
+     [#] preferinta<-iesit_cu_prietenii
+     [#] vorbaret
+   sociabil=t//FC=98
+
+Scop:av(preferinta,iesit_cu_prietenii)
+preferinta este iesit_cu_prietenii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(vorbaret,da)
+vorbaret   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   sociabil=da//FC=98
+
+Scop:av(preferinta,iesit_cu_prietenii)
+preferinta este iesit_cu_prietenii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(vorbaret,da)
+vorbaret   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Scop:av(expresiv,da)
+expresiv   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
 
 Scop:av(timp_la_dispozitie,mult)
 timp_la_dispozitie este mult   a fost derivat cu ajutorul regulilor:  utiliz 
 
-Scop:av(apa_termala,da)
-apa_termala   a fost derivat cu ajutorul regulilor:  utiliz 
-
-Scop:av(pret,mare)
-pret este mare   a fost derivat cu ajutorul regulilor:  38 
-
-Id_regula@38
-Premise: 
-     [#] buget<-mare
-     [#] not[economisire]
-   pret=mare//FC=98
-
-Scop:av(buget,mare)
-buget este mare   a fost derivat cu ajutorul regulilor:  utiliz 
-
-not economisire   a fost derivat cu ajutorul regulilor:  utiliz 
-
-Scop:not av(economisire,da)
+Scop:av(parteneri_vacanta,singur)
+parteneri_vacanta este singur   a fost derivat cu ajutorul regulilor:  utiliz 
 
 
 Id_regula@40

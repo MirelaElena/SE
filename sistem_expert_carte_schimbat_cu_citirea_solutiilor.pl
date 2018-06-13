@@ -70,6 +70,14 @@ afiseaza_fapte :-
 		listeaza_fapte,nl)
 	; (nl, write('Nu exista fapte in baza de cunostinte!')).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start
+afiseaza_fapte(Stream) :- 
+	fapt(av(Atr,Val),FC,_) 
+	->
+		(write(Stream,'n(Fapte existente in baza de cunostinte: )'), nl(Stream), flush_output(Stream),
+		listeaza_fapte(Stream),nl(Stream))
+	; (nl(Stream), write(Stream, 'n(Nu exista fapte in baza de cunostinte!)')), nl(Stream), flush_output(Stream).	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
 
 listeaza_fapte:-  
 fapt(av(Atr,Val),FC,_), 
@@ -78,8 +86,15 @@ write(Val), write(')'),
 write(','), write(' certitudine '),
 FC1 is integer(FC),write(FC1),
 nl,fail.
-
 listeaza_fapte.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start
+listeaza_fapte(Stream):-  
+		fapt(av(Atr,Val),FC,_), 
+		FC1 is integer(FC),
+		format(Stream,'f(~s#~s#~d)',[Atr,Val,FC1]), nl(Stream), flush_output(Stream), fail.
+listeaza_fapte(Stream).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
 
 
 lista_float_int([],[]).
@@ -126,12 +141,11 @@ scopuri_princ,!.
 
 executa([reinitiaza]) :- retractall(interogat(_)), retractall(fapt(_,_,_)),!.
 
-executa(Stream, [reinitiaza]) :- write(Stream, 'Am reusit sa reinitializez\n'), flush_output(Stream),
+executa(Stream, [reinitiaza]) :- write(Stream, 'Am reusit sa reinitializez'), flush_output(Stream),
 						retractall(interogat(_)), retractall(fapt(_,_,_)),!.
 
-executa([afisare_fapte]) :-
-afiseaza_fapte,!.
-
+executa([afisare_fapte]) :-afiseaza_fapte,!.
+executa(Stream, [afisare_fapte]) :- write(Stream, 'Am ajuns in executa afisare_fapte'), nl(Stream),flush_output(Stream), afiseaza_fapte(Stream),!.
 
 executa([cum|L]) :- cum(L),!.
 
@@ -183,7 +197,7 @@ scopuri_princ(Stream) :-
 	X^(determina(Stream,Atr), fapt(av(Atr,Val),FC,X), FC>=40),
 	L)
 	-> (afis_list_sol_detaliat(Stream,L), 
-		write('M-am intors in scopuri principale\n'),
+		write('M-am intors in scopuri principale'), nl,
 		meniu_secundar(Stream,L))
 	; write(Stream,'s(Nu exista solutii!)').	
 	
@@ -1029,9 +1043,15 @@ proceseaza_termen_citit(Stream, comanda(consulta),C):-
 				
 proceseaza_termen_citit(Stream, comanda(reinitiaza),C):-
 				write(Stream, 'Se incepe reinitializarea'), nl(Stream), flush_output(Stream),
-				executa(Stream, [reinitiaza]), write('2'),
+				executa(Stream, [reinitiaza]), 
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).		
+
+proceseaza_termen_citit(Stream, comanda(afisare_fapte),C):-
+				write(Stream, 'Se incepe afisarea faptelor'), nl(Stream), flush_output(Stream),
+				executa(Stream, [afisare_fapte]), 
+				C1 is C+1,
+				proceseaza_text_primit(Stream,C1).					
 						
 				
 proceseaza_termen_citit(Stream, X, _):- % cand vrem sa-i spunem "Pa"

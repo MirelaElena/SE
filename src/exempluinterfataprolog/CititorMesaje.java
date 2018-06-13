@@ -69,7 +69,7 @@ public class CititorMesaje extends Thread {
             InputStream is = s_aux.getInputStream();
 
             PipedOutputStream pos = new PipedOutputStream();
-            setPipedInputStream(new PipedInputStream(pos));//leg un pipedInputStream de capatul in care se scrie
+            setPipedInputStream(new PipedInputStream(pos, 10000000));//leg un pipedInputStream de capatul in care se scrie
 
             int chr;
             String str = "";
@@ -120,8 +120,20 @@ public class CititorMesaje extends Thread {
                                 } catch (IOException ex) {
                                     Logger.getLogger(CititorMesaje.class.getName()).log(Level.SEVERE, null, ex);
                                 }
-                             
-                                
+                            }
+                            //verific daca e primul fapt/nu exista fapte
+                             else if (text.length() > 2 && text.charAt(0) == 'n' && text.charAt(1) == '(' && text.charAt(text.length() - 1) == ')') {
+                                    System.out.println("Am primit primul fapt: " + text);
+                                    String fapt = text.substring(2, text.length() - 1);
+                               
+                                    conexiune.getFereastra().setPrimulFapt(fapt);
+                            }
+                             //verific daca e un fapt
+                             else if (text.length() > 2 && text.charAt(0) == 'f' && text.charAt(1) == '(' && text.charAt(text.length() - 1) == ')') {
+                                    System.out.println("Am primit primul fapt: " + text);
+                                    String fapt = text.substring(2, text.length() - 1);
+                               
+                                    conexiune.getFereastra().setFapt(fapt);
                             }
                         }
 
