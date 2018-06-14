@@ -1,0 +1,37 @@
+Scop:av(loc_excursie,fuji_five_lakes)
+loc_excursie este fuji_five_lakes   a fost derivat cu ajutorul regulilor:  54 
+
+Id_regula@54
+Premise: 
+     [#] anotimp<-primavara
+     [#] parteneri_vacanta<-singur
+     [#] timp_la_dispozitie<-mediu
+   loc_excursie=fuji_five_lakes//FC=68
+
+Scop:av(anotimp,primavara)
+anotimp este primavara   a fost derivat cu ajutorul regulilor:  7 
+
+Id_regula@7
+Premise: 
+     [#] resimte_emotii
+     [#] interesat_de_natura
+     [#] not[friguros]
+   anotimp=primavara//FC=90
+
+Scop:av(resimte_emotii,da)
+resimte_emotii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(interesat_de_natura,da)
+interesat_de_natura   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not friguros   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(friguros,da)
+
+Scop:av(parteneri_vacanta,singur)
+parteneri_vacanta este singur   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(timp_la_dispozitie,mediu)
+timp_la_dispozitie este mediu   a fost derivat cu ajutorul regulilor:  utiliz 
+
+

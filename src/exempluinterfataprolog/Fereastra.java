@@ -40,6 +40,8 @@ public class Fereastra extends javax.swing.JFrame {
     JTextField incarcaSolutii;
     ConexiuneProlog conexiune;
     Intrebare_intrebatoare panou_intrebari;
+    private JTextField solutieField;
+    private JButton solutieButon;
 
     public Fereastra(String titlu) {
         super(titlu);
@@ -101,6 +103,11 @@ public class Fereastra extends javax.swing.JFrame {
 
         jButton4.setText("Cum");
         jButton4.setEnabled(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Afisare_fapte");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -232,12 +239,11 @@ public class Fereastra extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 321, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -267,7 +273,7 @@ public class Fereastra extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        jPanel2.setLayout(new GridLayout(2, 2, 20, 20));
+        jPanel2.setLayout(new GridLayout(2, 3, 20, 20));
         incarcaReguli = new JTextField("'reguli_carte.txt'");
         incarcaSolutii = new JTextField("'solutii.txt'");
         butonReguli = new JButton("Incarca Regulile");
@@ -362,8 +368,44 @@ public class Fereastra extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void optiuneDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        System.out.println("Am apasat pe cum");
+        
+        solutieField = new JTextField("");
+        solutieButon = new JButton("Afla cum");
+        
+        solutieButon.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    File directory = new File("output_demonstratii");
+                    File[] fList = directory.listFiles();
+                    for (File file : fList){
+                        if(file.getName().contains(solutieField.getText()))
+                        {
+                            String fileName = "output_demonstratii/" + file.getName();
+                            ProcessBuilder pb = new ProcessBuilder("Notepad.exe", fileName);
+                            try {
+                                pb.start();
+                            } catch (IOException ex) {
+                                Logger.getLogger(Fereastra.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+            }});
+        
+        jPanel2.add(solutieField);
+        jPanel2.add(solutieButon);
+        jPanel2.repaint();
+        jPanel2.revalidate();
+       
+      
+    }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void optiuneDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        this.panou_intrebari.removeAll();
+        this.panou_intrebari.setLayout(new BoxLayout(panou_intrebari, BoxLayout.Y_AXIS));
+        this.panou_intrebari.repaint();
+        this.panou_intrebari.revalidate();
+        
         String raspuns = ((JButton) (evt.getSource())).getText();
         if (raspuns.equalsIgnoreCase("nu")) {//TODO: De schimbat felul cum arata interfata
             System.out.println("Trebuie sa sterg tot");
@@ -375,6 +417,7 @@ public class Fereastra extends javax.swing.JFrame {
             jPanel5.repaint();
             jPanel5.revalidate();
         }
+        
         
         try {
             conexiune.expeditor.trimiteSirSicstus(raspuns);
@@ -445,14 +488,6 @@ public class Fereastra extends javax.swing.JFrame {
 
     }
 
-    public void setImagine(String cale, String descriere) throws IOException {
-        /* jTextField4.setText(descriere);
-        BufferedImage bf;
-        bf = ImageIO.read(new File(cale));
-        jLabel1.setIcon(new ImageIcon(bf));
-        jPanel1.repaint();
-        jPanel1.revalidate();*/
-    }
 
     public void setOptiuni(String optiuni) {
         System.out.println("optiuni: " + optiuni);
@@ -479,14 +514,22 @@ public class Fereastra extends javax.swing.JFrame {
         //this.revalidate();
     }
 
-    public void setSolutie(String solutie) throws IOException {
-        //if (!Fereastra.AFISAT_SOLUTII) {
+    public void setPrimaSolutie(String solutie) throws IOException {
+       
         this.panou_intrebari.removeAll();
         this.panou_intrebari.setLayout(new BoxLayout(panou_intrebari, BoxLayout.Y_AXIS));
-        Fereastra.AFISAT_SOLUTII = true;
-        //}
+        
+        System.out.println("Solutia in getPrimaSolutie:" + solutie);
 
-        System.out.println("Solutia in getSolutie:" + solutie);
+        JLabel label = new JLabel(solutie);
+        this.panou_intrebari.add(label);
+
+        this.panou_intrebari.repaint();
+        this.panou_intrebari.revalidate();
+    }
+    
+    public void setSolutie(String solutie) throws IOException {
+        System.out.println("Solutia in setSolutie:" + solutie);
 
         if (solutie.length() >= 20) // solutie completa
         {//
@@ -520,7 +563,6 @@ public class Fereastra extends javax.swing.JFrame {
 
         this.panou_intrebari.repaint();
         this.panou_intrebari.revalidate();
-        //this.revalidate();
     }
 
     public static boolean AFISAT_SOLUTII = false;

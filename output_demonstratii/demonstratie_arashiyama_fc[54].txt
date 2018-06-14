@@ -1,0 +1,33 @@
+Scop:av(loc_excursie,arashiyama)
+loc_excursie este arashiyama   a fost derivat cu ajutorul regulilor:  97 
+
+Id_regula@97
+Premise: 
+     [#] anotimp<-toamna
+     [#] timp_la_dispozitie<-mediu
+   loc_excursie=arashiyama//FC=55
+
+Scop:av(anotimp,toamna)
+anotimp este toamna   a fost derivat cu ajutorul regulilor:  6 
+
+Id_regula@6
+Premise: 
+     [#] resimte_emotii
+     [#] interesat_de_natura
+     [#] not[friguros]
+   anotimp=toamna//FC=98
+
+Scop:av(resimte_emotii,da)
+resimte_emotii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(interesat_de_natura,da)
+interesat_de_natura   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not friguros   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(friguros,da)
+
+Scop:av(timp_la_dispozitie,mediu)
+timp_la_dispozitie este mediu   a fost derivat cu ajutorul regulilor:  utiliz 
+
+

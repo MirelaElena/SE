@@ -110,7 +110,17 @@ public class CititorMesaje extends Thread {
                             {
                                 System.out.println("Meniu secundar!!!");
                                 conexiune.getFereastra().setMeniuSecundar(text);
-                            }                            
+                            }
+                            //verific daca e prima solutie
+                              else if (text.length() > 2 && text.charAt(0) == 'k' && text.charAt(1) == '(' && text.charAt(text.length() - 1) == ')') {
+                                    System.out.println("Am primit solutia: " + text);
+                                    String solutie = text.substring(2, text.length() - 1);
+                                try {
+                                    conexiune.getFereastra().setPrimaSolutie(solutie);
+                                } catch (IOException ex) {
+                                    Logger.getLogger(CititorMesaje.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
                             //verific daca e solutie
                             else if (text.length() > 2 && text.charAt(0) == 's' && text.charAt(1) == '(' && text.charAt(text.length() - 1) == ')') {
                                     System.out.println("Am primit solutia: " + text);

@@ -141,11 +141,11 @@ scopuri_princ,!.
 
 executa([reinitiaza]) :- retractall(interogat(_)), retractall(fapt(_,_,_)),!.
 
-executa(Stream, [reinitiaza]) :- write(Stream, 'Am reusit sa reinitializez'), flush_output(Stream),
+executa(Stream, [reinitiaza]) :- write('Am reusit sa reinitializez'),nl,
 						retractall(interogat(_)), retractall(fapt(_,_,_)),!.
 
 executa([afisare_fapte]) :-afiseaza_fapte,!.
-executa(Stream, [afisare_fapte]) :- write(Stream, 'Am ajuns in executa afisare_fapte'), nl(Stream),flush_output(Stream), afiseaza_fapte(Stream),!.
+executa(Stream, [afisare_fapte]) :- write('Am ajuns in executa afisare_fapte'), nl, afiseaza_fapte(Stream),!.
 
 executa([cum|L]) :- cum(L),!.
 
@@ -153,10 +153,10 @@ executa([nu],L):-!.
 executa(Stream, [nu], L):-!.
 
 executa([sumar], L):- afis_list_sol(L).
-executa(Stream, [sumar], L):- write('SUMAR'), nl, write('Sol:'), write(L), nl, afis_list_sol(Stream, L),write('SUMAR FINAL'), nl.
+executa(Stream, [sumar], L):-  afis_list_sol(Stream, L).
 
 executa([complet], L):- afis_list_sol_detaliat(L).
-executa(Stream, [complet], L):- write('COMPLET'), nl, write('Sol:'), write(L), nl, afis_list_sol_detaliat(Stream, L), write('COMPLET FINAL'), nl.
+executa(Stream, [complet], L):- afis_list_sol_detaliat(Stream, L).
 
 executa([iesire]):-!.
 executa(Stream, [iesire]):-!.
@@ -196,10 +196,11 @@ scopuri_princ(Stream) :-
 	setof(st(FC,fapt(av(Atr,Val))), 
 	X^(determina(Stream,Atr), fapt(av(Atr,Val),FC,X), FC>=40),
 	L)
-	-> (afis_list_sol_detaliat(Stream,L), 
-		write('M-am intors in scopuri principale'), nl,
-		meniu_secundar(Stream,L))
-	; write(Stream,'s(Nu exista solutii!)').	
+	-> (write(Stream, 'k(Sunt urmatoarele solutii:)'), nl(Stream), flush_output(Stream),
+		afis_list_sol_detaliat(Stream,L), 
+		meniu_secundar(Stream,L)
+		)
+	; write(Stream,'k(Nu exista solutii!)'), nl(Stream), flush_output(Stream).	
 	
 scopuri_princ(_).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
@@ -1021,34 +1022,31 @@ proceseaza_termen_citit(Stream,director(D),C):- %pentru a seta directorul curent
 				
 				
 proceseaza_termen_citit(Stream, incarca(X),C):-
-				write(Stream,'Se incearca incarcarea fisierului\n'),
-				flush_output(Stream),
+				write('Se incearca incarcarea fisierului'),nl,
 				incarca(X),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).
 				
 proceseaza_termen_citit(Stream, incarca_sol(X),C):-
-				write(Stream,'Se incearca incarcarea fisierului\n'),
-				flush_output(Stream),
+				write('Se incearca incarcarea fisierului'),nl,
 				incarca_sol(X),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).
 				
 proceseaza_termen_citit(Stream, comanda(consulta),C):-
-				write(Stream,'Se incepe consultarea'), nl(Stream), flush_output(Stream),
-				flush_output(Stream),
+				write('Se incepe consultarea'),nl,
 				scopuri_princ(Stream),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).
 				
 proceseaza_termen_citit(Stream, comanda(reinitiaza),C):-
-				write(Stream, 'Se incepe reinitializarea'), nl(Stream), flush_output(Stream),
+				write('Se incepe reinitializarea'), nl,
 				executa(Stream, [reinitiaza]), 
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).		
 
 proceseaza_termen_citit(Stream, comanda(afisare_fapte),C):-
-				write(Stream, 'Se incepe afisarea faptelor'), nl(Stream), flush_output(Stream),
+				write('Se incepe afisarea faptelor'), nl,
 				executa(Stream, [afisare_fapte]), 
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).					
