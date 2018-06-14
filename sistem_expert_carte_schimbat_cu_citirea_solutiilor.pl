@@ -371,20 +371,21 @@ realizare_scop(Scop,FC_curent,Istorie) :-
 fg(Scop,FC_curent,Istorie).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start
-realizare_scop(Stream,not Scop,Not_FC,Istorie) :-
-													realizare_scop(Stream,Scop,FC,Istorie),
-													Not_FC is - FC, !.
-
-realizare_scop(_,Scop,FC,_) :-
-								fapt(Scop,FC,_), !.
-
-realizare_scop(Stream,Scop,FC,Istorie) :-
-											pot_interoga(Stream,Scop,Istorie),
-											!,realizare_scop(Stream,Scop,FC,Istorie).
-
-realizare_scop(Stream,Scop,FC_curent,Istorie) :-
-fg(Stream,Scop,FC_curent,Istorie).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+realizare_scop(Stream, not Scop,Not_FC,Istorie):- 
+	realizare_scop(Stream, Scop,FC,Istorie),
+	Not_FC is - FC, !.
+realizare_scop(Stream, Scop,FC,_):- fapt(Scop,FC,_), !.
+realizare_scop(Stream, av(Atr,_),FC,_):- fapt(av(Atr,nu_conteaza),FC,_), !.
+realizare_scop(Stream, not Scop,Not_FC,Istorie) :-
+	realizare_scop(Stream, Scop,FC,Istorie),
+	Scop = av(Atr,_),
+	fapt(av(Atr,nu_conteaza),FC2,_),
+	Not_FC is FC2, !.
+realizare_scop(Stream, Scop,FC,Istorie):- 
+	pot_interoga(Stream, Scop,Istorie),!,
+	realizare_scop(Stream, Scop,FC,Istorie).
+realizare_scop(Stream, Scop,FC_curent,Istorie):- fg(Stream, Scop,FC_curent,Istorie).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End
 
         
 fg(Scop,FC_curent,Istorie) :-
