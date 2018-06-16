@@ -18,8 +18,8 @@ import java.net.Socket;
  */
 public class ConexiuneProlog {
 
-    //final String caleExecutabilSicstus = "M:\\2018 mar\\SistemeExert\\SICStus\\bin\\spwin.exe";
-    final String caleExecutabilSicstus = "E:\\Facultate\\Anul III sem I\\CURSURI_SistemeExpert\\SistemeExert\\SICStus\\bin\\spwin.exe";
+    final String caleExecutabilSicstus = "M:\\2018 mar\\SistemeExert\\SICStus\\bin\\spwin.exe";
+    //final String caleExecutabilSicstus = "E:\\Facultate\\Anul III sem I\\CURSURI_SistemeExpert\\SistemeExert\\SICStus\\bin\\spwin.exe";
     final String nume_fisier="sistem_expert_carte_schimbat_cu_citirea_solutiilor.pl";
     //final String nume_fisier="ceva_simplu.pl";    
     final String scop = "inceput.";

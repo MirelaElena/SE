@@ -10,6 +10,8 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 /**
  *
@@ -25,7 +27,17 @@ public class ExempluInterfataProlog {
         // TODO code application logic here
         
         ConexiuneProlog cxp;
-        
+        try {
+    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+        if ("Nimbus".equals(info.getName())) {
+           //UIManager.setLookAndFeel(info.getClassName());
+           UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
+            break;
+        }
+    }
+} catch (Exception e) {
+    // If Nimbus is not available, you can set the GUI to another look and feel.
+}
         try {            
             final Fereastra fereastra=new Fereastra("Japan SE");
             
