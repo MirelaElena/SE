@@ -274,6 +274,7 @@ public class Fereastra extends javax.swing.JFrame {
         try {
             conexiune.expeditor.trimiteMesajSicstus("comanda(reinitiaza)");
             this.panou_intrebari.removeAll();
+            this.jButton6.setEnabled(true);
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Fereastra.class.getName()).log(Level.SEVERE, null, ex);
@@ -417,7 +418,7 @@ public class Fereastra extends javax.swing.JFrame {
         String raspuns = ((JButton) (evt.getSource())).getText();
         if (raspuns.equalsIgnoreCase("nu")) {//TODO: De schimbat felul cum arata interfata
             System.out.println("Trebuie sa sterg tot");
-           
+            this.jButton6.setEnabled(false);
             this.panou_intrebari.removeAll();
             this.panou_intrebari.repaint();
             this.panou_intrebari.revalidate();

@@ -1,0 +1,233 @@
+Scop:av(loc_excursie,mount_yoshino)
+loc_excursie este mount_yoshino   a fost derivat cu ajutorul regulilor:  79 78 
+
+Id_regula@79
+Premise: 
+     [#] anotimp<-primavara
+     [#] zona_dorita<-rurala
+     [#] parteneri_vacanta<-singur
+     [#] templu
+   loc_excursie=mount_yoshino//FC=68
+
+Scop:av(anotimp,primavara)
+anotimp este primavara   a fost derivat cu ajutorul regulilor:  7 
+
+Id_regula@7
+Premise: 
+     [#] resimte_emotii
+     [#] interesat_de_natura
+     [#] not[friguros]
+   anotimp=primavara//FC=90
+
+Scop:av(resimte_emotii,da)
+resimte_emotii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(interesat_de_natura,da)
+interesat_de_natura   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not friguros   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(friguros,da)
+
+Scop:av(zona_dorita,rurala)
+zona_dorita este rurala   a fost derivat cu ajutorul regulilor:  14 
+
+Id_regula@14
+Premise: 
+     [#] not[fire_indrazneata]
+     [#] tip_personalitate<-ambivert
+   zona_dorita=rurala//FC=88
+
+not fire_indrazneata   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(fire_indrazneata,da)
+Scop:av(tip_personalitate,ambivert)
+tip_personalitate este ambivert   a fost derivat cu ajutorul regulilor:  17 
+
+Id_regula@17
+Premise: 
+     [#] sociabil
+     [#] not[expresiv]
+   tip_personalitate=ambivert//FC=88
+
+Scop:av(sociabil,da)
+sociabil   a fost derivat cu ajutorul regulilor:  22 
+
+Id_regula@22
+Premise: 
+     [#] preferinta<-stat_in_casa
+     [#] vorbaret
+   sociabil=t//FC=65
+
+Scop:av(preferinta,stat_in_casa)
+preferinta este stat_in_casa   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(vorbaret,da)
+vorbaret   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   sociabil=da//FC=65
+
+Scop:av(preferinta,stat_in_casa)
+preferinta este stat_in_casa   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(vorbaret,da)
+vorbaret   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+not expresiv   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(expresiv,da)
+
+
+Scop:av(parteneri_vacanta,singur)
+parteneri_vacanta este singur   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(templu,da)
+templu   a fost derivat cu ajutorul regulilor:  26 
+
+Id_regula@26
+Premise: 
+     [#] loc_istoric
+     [#] meditatie
+   templu=t//FC=98
+
+Scop:av(loc_istoric,da)
+loc_istoric   a fost derivat cu ajutorul regulilor:  29 
+
+Id_regula@29
+Premise: 
+     [#] fire_spirituala
+     [#] not[tip_linistit]
+   loc_istoric=t//FC=95
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(tip_linistit,da)
+
+   loc_istoric=da//FC=95
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(tip_linistit,da)
+
+Scop:av(meditatie,da)
+meditatie   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   templu=da//FC=98
+
+Scop:av(loc_istoric,da)
+loc_istoric   a fost derivat cu ajutorul regulilor:  29 
+
+Id_regula@29
+Premise: 
+     [#] fire_spirituala
+     [#] not[tip_linistit]
+   loc_istoric=t//FC=95
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(tip_linistit,da)
+
+   loc_istoric=da//FC=95
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(tip_linistit,da)
+
+Scop:av(meditatie,da)
+meditatie   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+
+Id_regula@78
+Premise: 
+     [#] anotimp<-primavara
+     [#] zona_dorita<-rurala
+   loc_excursie=mount_yoshino//FC=50
+
+Scop:av(anotimp,primavara)
+anotimp este primavara   a fost derivat cu ajutorul regulilor:  7 
+
+Id_regula@7
+Premise: 
+     [#] resimte_emotii
+     [#] interesat_de_natura
+     [#] not[friguros]
+   anotimp=primavara//FC=90
+
+Scop:av(resimte_emotii,da)
+resimte_emotii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(interesat_de_natura,da)
+interesat_de_natura   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not friguros   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(friguros,da)
+
+Scop:av(zona_dorita,rurala)
+zona_dorita este rurala   a fost derivat cu ajutorul regulilor:  14 
+
+Id_regula@14
+Premise: 
+     [#] not[fire_indrazneata]
+     [#] tip_personalitate<-ambivert
+   zona_dorita=rurala//FC=88
+
+not fire_indrazneata   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(fire_indrazneata,da)
+Scop:av(tip_personalitate,ambivert)
+tip_personalitate este ambivert   a fost derivat cu ajutorul regulilor:  17 
+
+Id_regula@17
+Premise: 
+     [#] sociabil
+     [#] not[expresiv]
+   tip_personalitate=ambivert//FC=88
+
+Scop:av(sociabil,da)
+sociabil   a fost derivat cu ajutorul regulilor:  22 
+
+Id_regula@22
+Premise: 
+     [#] preferinta<-stat_in_casa
+     [#] vorbaret
+   sociabil=t//FC=65
+
+Scop:av(preferinta,stat_in_casa)
+preferinta este stat_in_casa   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(vorbaret,da)
+vorbaret   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   sociabil=da//FC=65
+
+Scop:av(preferinta,stat_in_casa)
+preferinta este stat_in_casa   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(vorbaret,da)
+vorbaret   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+not expresiv   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(expresiv,da)
+
+
+
