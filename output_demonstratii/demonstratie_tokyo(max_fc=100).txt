@@ -7,6 +7,6 @@ Premise:
    loc_excursie=tokyo//FC=100
 
 Scop:av(este_capitala,da)
-este_capitala este nu_conteaza   a fost derivat cu ajutorul regulilor:  utiliz 
+este_capitala   a fost derivat cu ajutorul regulilor:  utiliz 
 
 
