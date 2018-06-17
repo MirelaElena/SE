@@ -31,7 +31,7 @@ public class ExempluInterfataProlog {
     for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
         if ("Nimbus".equals(info.getName())) {
            //UIManager.setLookAndFeel(info.getClassName());
-           UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
+           UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
             break;
         }
     }

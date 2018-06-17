@@ -697,7 +697,7 @@ proceseaza(L),L == [end_of_file],nl.
 proceseaza([end_of_file]):-!.
 
 proceseaza(L) :-
-trad(R,L,[]),write(R),nl,nl,
+trad(R,L,[]),
 assertz(R), !.
 
 trad(regula(N, premise(Premise), concluzie(Atunci,F))) --> identificator(N),

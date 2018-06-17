@@ -275,6 +275,12 @@ public class Fereastra extends javax.swing.JFrame {
             conexiune.expeditor.trimiteMesajSicstus("comanda(reinitiaza)");
             this.panou_intrebari.removeAll();
             this.jButton6.setEnabled(true);
+            this.jPanel2.removeAll();
+            this.jPanel2.revalidate();
+            this.jPanel2.repaint();
+            this.jPanel1.removeAll();
+            this.jPanel1.revalidate();
+            this.jPanel1.repaint();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Fereastra.class.getName()).log(Level.SEVERE, null, ex);
@@ -364,6 +370,7 @@ public class Fereastra extends javax.swing.JFrame {
         jButton4.setEnabled(true);
         jButton5.setEnabled(true);
         jButton7.setEnabled(false);
+        jButton6.setEnabled(false);
         
 
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -425,6 +432,9 @@ public class Fereastra extends javax.swing.JFrame {
             jPanel5.removeAll();
             jPanel5.repaint();
             jPanel5.revalidate();
+            jPanel2.removeAll();
+            jPanel2.repaint();
+            jPanel2.revalidate();
         }
         
         
