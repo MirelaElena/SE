@@ -1,0 +1,175 @@
+Scop:av(loc_excursie,tokyo)
+loc_excursie este tokyo   a fost derivat cu ajutorul regulilor:  46 45 
+
+Id_regula@46
+Premise: 
+     [#] anotimp<-primavara
+     [#] apa_termala
+     [#] templu
+     [#] pret<-mare
+     [#] parteneri_vacanta<-singur
+   loc_excursie=tokyo//FC=97
+
+Scop:av(anotimp,primavara)
+anotimp este primavara   a fost derivat cu ajutorul regulilor:  7 
+
+Id_regula@7
+Premise: 
+     [#] resimte_emotii
+     [#] interesat_de_natura
+     [#] not[friguros]
+   anotimp=primavara//FC=90
+
+Scop:av(resimte_emotii,da)
+resimte_emotii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(interesat_de_natura,da)
+interesat_de_natura   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not friguros   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(friguros,da)
+
+Scop:av(apa_termala,da)
+apa_termala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(templu,da)
+templu   a fost derivat cu ajutorul regulilor:  26 
+
+Id_regula@26
+Premise: 
+     [#] loc_istoric
+     [#] meditatie
+   templu=t//FC=98
+
+Scop:av(loc_istoric,da)
+loc_istoric   a fost derivat cu ajutorul regulilor:  30 
+
+Id_regula@30
+Premise: 
+     [#] fire_spirituala
+     [#] tip_linistit
+   loc_istoric=t//FC=98
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(tip_linistit,da)
+tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   loc_istoric=da//FC=98
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(tip_linistit,da)
+tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Scop:av(meditatie,da)
+meditatie   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   templu=da//FC=98
+
+Scop:av(loc_istoric,da)
+loc_istoric   a fost derivat cu ajutorul regulilor:  30 
+
+Id_regula@30
+Premise: 
+     [#] fire_spirituala
+     [#] tip_linistit
+   loc_istoric=t//FC=98
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(tip_linistit,da)
+tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+   loc_istoric=da//FC=98
+
+Scop:av(fire_spirituala,da)
+fire_spirituala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(tip_linistit,da)
+tip_linistit   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Scop:av(meditatie,da)
+meditatie   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Scop:av(pret,mare)
+pret este mare   a fost derivat cu ajutorul regulilor:  38 
+
+Id_regula@38
+Premise: 
+     [#] buget<-mare
+     [#] not[economisire]
+   pret=mare//FC=98
+
+Scop:av(buget,mare)
+buget este mare   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not economisire   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(economisire,da)
+
+Scop:av(parteneri_vacanta,singur)
+parteneri_vacanta este singur   a fost derivat cu ajutorul regulilor:  utiliz 
+
+
+Id_regula@45
+Premise: 
+     [#] anotimp<-primavara
+     [#] apa_termala
+     [#] pret<-mare
+     [#] parteneri_vacanta<-singur
+   loc_excursie=tokyo//FC=94
+
+Scop:av(anotimp,primavara)
+anotimp este primavara   a fost derivat cu ajutorul regulilor:  7 
+
+Id_regula@7
+Premise: 
+     [#] resimte_emotii
+     [#] interesat_de_natura
+     [#] not[friguros]
+   anotimp=primavara//FC=90
+
+Scop:av(resimte_emotii,da)
+resimte_emotii   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(interesat_de_natura,da)
+interesat_de_natura   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not friguros   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(friguros,da)
+
+Scop:av(apa_termala,da)
+apa_termala   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:av(pret,mare)
+pret este mare   a fost derivat cu ajutorul regulilor:  38 
+
+Id_regula@38
+Premise: 
+     [#] buget<-mare
+     [#] not[economisire]
+   pret=mare//FC=98
+
+Scop:av(buget,mare)
+buget este mare   a fost derivat cu ajutorul regulilor:  utiliz 
+
+not economisire   a fost derivat cu ajutorul regulilor:  utiliz 
+
+Scop:not av(economisire,da)
+
+Scop:av(parteneri_vacanta,singur)
+parteneri_vacanta este singur   a fost derivat cu ajutorul regulilor:  utiliz 
+
+

@@ -251,12 +251,20 @@ Premise:
 [#] not[economisire]
 pret=mare//FC=98.
 
-
-
 Id_regula@39
 Premise: 
 [#] este_capitala
+[#] zona_dorita <- urbana
+[#] pret <- mare
 loc_excursie=tokyo//FC=100.
+
+Id_regula@103
+Premise: 
+[#] este_capitala
+[#] zona_dorita <- urbana
+[#] timp_la_dispozitie <- mult
+[#] parteneri_vacanta <- singur
+loc_excursie=tokyo//FC=85.
 
 Id_regula@40
 Premise: 
@@ -271,12 +279,29 @@ Premise:
 [#] parteneri_vacanta <- singur
 loc_excursie=tokyo//FC=85.
 
+Id_regula@104
+Premise: 
+[#] este_capitala
+[#] timp_la_dispozitie <- mult
+[#] apa_termala
+[#] pret <- mare
+loc_excursie=tokyo//FC=84.
+
 Id_regula@42
 Premise: 
 [#] timp_la_dispozitie <- mult
 [#] apa_termala
 [#] pret <- mare
 loc_excursie=tokyo//FC=84.
+
+
+Id_regula@105
+Premise: 
+[#] este_capitala
+[#] anotimp <- primavara
+[#] apa_termala
+[#] pret <- scump
+loc_excursie=tokyo//FC=89.
 
 Id_regula@43
 Premise: 
