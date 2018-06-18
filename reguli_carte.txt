@@ -256,7 +256,7 @@ Premise:
 [#] este_capitala
 [#] zona_dorita <- urbana
 [#] pret <- mare
-loc_excursie=tokyo//FC=100.
+loc_excursie=tokyo//FC=94.
 
 Id_regula@103
 Premise: 
